@@ -3,7 +3,7 @@
 ## Steps to run the Server
     1. npm install - To install the required dependencies
     2. npm run start - To start the Server
-    3. Navigate to your respective folder
+    3. Navigate to your respective folder in the browser tab that appears
 
 ## To submit an exercise
     1. Create a separate folder with your name
