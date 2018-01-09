@@ -9,7 +9,7 @@
     2. Create a CSS file in the css folder with the same name as the exercise
     3. Add a link to the CSS file in the corresponding HTML file and link the HTML file in index.html
 
-Once you have completed your exercise and when you commit your code, a linter will run during commit to check for code styling errors. Clear all the error to commit the code.
+Once you have completed your exercise and when you commit your code, a linter will run during commit to check for code styling errors. Clear all the errors to commit the code.
 
 
 
