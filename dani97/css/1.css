@@ -1,0 +1,56 @@
+.flex-box {
+    font-size: 1px;
+}
+
+.col {
+    height: 100px;
+    background: green;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.col-1 {
+    background: blue;
+}
+
+.col-2 {
+    background: skyblue;
+}
+
+.col-3 {
+    background: darkgreen;
+}
+
+@media screen and (max-width: 2000px) {
+    .col-1 {
+        width: 20%;
+    }
+
+    .col-2 {
+        width: 50%;
+    }
+
+    .col-3 {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .col-1 {
+        width: 20%;
+    }
+
+    .col-2 {
+        width: 80%;
+    }
+
+    .col-3 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .col {
+        width: 100%;
+    }
+}
