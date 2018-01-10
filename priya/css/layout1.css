@@ -1,0 +1,54 @@
+.main {
+    width: 100%;
+}
+
+.height-set * {
+    height: 375px;
+}
+
+.main * {
+    color: white;
+    border: 2px solid red;
+    text-align: center;
+    font-size: 20px;
+}
+
+header,
+footer {
+    text-align: center;
+    background-color: purple;
+    color: white;
+    height: 100px;
+}
+
+.left-div {
+    width: 10%;
+    background-color: green;
+}
+
+.left-div img {
+    float: right;
+    width: 75px;
+    height: 75px;
+}
+
+.right-div {
+    background-color: green;
+    color: white;
+    width: 10%;
+}
+
+.center-div {
+    background-image: url("http://images.all-free-download.com/images/graphiclarge/colorful_diagonal_stripe_vector_pattern_148288.jpg");
+    background-size: cover;
+    width: 79%;
+}
+
+.float-left {
+    float: left;
+}
+
+footer {
+    background-color: yellow;
+    clear: both;
+}
