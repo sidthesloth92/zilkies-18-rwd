@@ -1,0 +1,44 @@
+.red {
+    background: red;
+    height : 120px;
+    width : 33.3%;
+    float :left;
+}
+.yellow {
+    background: yellow;
+    height : 120px;
+    width: 33.3%;
+    float :left;
+
+
+}
+.green {
+    background: green;
+    height : 120px;
+    width : 33.3%;
+    float :left;
+}
+
+@media screen and (max-width:700px){
+    .red {
+        width:25%;
+    }
+    .green {
+        width : 75%;
+    }
+    .yellow {
+        width : 100%;
+    }
+}
+
+@media screen and (max-width:480px){
+    .red {
+        width:100%;
+    }
+    .green {
+        width : 100%;
+    }
+    .yellow {
+        width : 100%;
+    }
+}   

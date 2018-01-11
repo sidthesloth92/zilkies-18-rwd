@@ -1,0 +1,70 @@
+section {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.top-left-div {
+    background-color: blue;
+    width: 50%;
+}
+
+.top-right-div {
+    background-color: cyan;
+    width: 50%;
+}
+
+.bottom-left-div {
+    background-color: green;
+    width: 35%;
+}
+
+.bottom-div {
+    background-color: red;
+    width: 30%;
+}
+
+.bottom-right-div {
+    background-color: orange;
+    width: 35%;
+}
+
+.left-float {
+    float: left;
+    height: 200px;
+}
+
+@media screen and (max-width: 900px) {
+    section {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    section {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .top-left-div,
+    .bottom-div,
+    .bottom-right-div {
+        width: 100%;
+    }
+
+    .top-right-div,
+    .bottom-left-div {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    section {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .left-float {
+        width: 100%;
+    }
+}

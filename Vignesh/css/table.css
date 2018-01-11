@@ -1,0 +1,45 @@
+ 
+td {
+    text-align: center;
+}
+
+.tableone td,
+.tableone th,
+.tableone {
+    border: 1px solid green;
+}
+
+.tableone th,
+.bg-orange {
+    background-color: orange;
+}
+  
+.tabletwo td,
+.tabletwo th {
+    border: 1px solid black;
+}
+  
+.tabletwo {
+    border-collapse: collapse;
+}
+
+.tablethree th,
+.tablethree td {
+    border: 1px solid black;
+}
+
+.tablethree {
+    border-collapse: collapse;
+}
+
+.tablefour td {
+    border: 1px solid blue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tablefour {
+    border: 1px solid red;
+    table-layout: fixed;
+    width: 100px;
+}

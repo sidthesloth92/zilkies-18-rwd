@@ -1,0 +1,66 @@
+.common-div {
+    height: 150px;
+    float: left;
+}
+
+.one {
+    width: 50%;
+    background: blue;
+}
+
+.two {
+    width: 50%;
+    background: lightblue;
+}
+
+.three {
+    width: 33.3%;
+    background: green;
+}
+
+.four {
+    width: 33.3%;
+    background: red;
+}
+
+.five {
+    width: 33.3%;
+    background: orange;
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .one,
+    .four,
+    .five {
+        width: 100%;
+        clear: left;
+    }
+
+    .two {
+        width: 50%;
+    }
+
+    .three {
+        width: 50%;
+    }
+
+    .four,
+    .five {
+        width: 100%;
+        clear: left;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mobile-width {
+        width: 100%;
+        clear: left;
+    }
+}

@@ -1,0 +1,27 @@
+.table1 {
+    border-color: green;
+}
+
+.table1 th {
+    background-color: orange;
+}
+
+.SNO {
+    background-color: orange;
+}
+
+.table2 {
+    border-collapse: collapse;
+}
+
+.table4 {
+    border-color: red;
+}
+
+.table4 th {
+    border-color: blue;
+}
+
+.table4 td {
+    border-color: blue;
+}
