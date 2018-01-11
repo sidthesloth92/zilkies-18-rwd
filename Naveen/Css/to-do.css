@@ -1,0 +1,10 @@
+li{
+    margin-top:20px;
+    width:100px;
+    height:30px;
+    background-color:green;
+    text-align: center;
+}
+ul{
+    list-style: none;
+}
