@@ -62,6 +62,6 @@
         width: 25%;
         height: 200px;
         position: relative;
-        top: -100px;
+        bottom: 100px;
     }
 }

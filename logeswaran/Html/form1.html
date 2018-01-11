@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/form1.css"/>
+    <title>Form-1</title>
+</head>
+
+<body>
+    <form action=< h1>Payment form</h1>
+        <font>Required fields are followed by * </font>
+        <h2>Contact information</h2>
+        <fieldset>
+            <legend>Title</legend>
+            <input type="radio" name="gender" value="Mister">Mister</input>
+            <br/>
+            <input type="radio" name="gender" value="Miss">Miss</input>
+        </fieldset>
+        <label for="name">Name : *</label>
+        <input type="text" id="name" name="name" required />
+        <br/>
+        <label for="email">E-mail : *</label>
+        <input type="email" id="email" name="email" required />
+        <br/>
+        <label for="password">Password : *</label>
+        <input type="password" id="password" name="password" required />
+        <br/>
+        <h2>Payment information</h2>
+        <label for="card-type">Card type : </label>
+        <select id="card-type" name="card-type">
+            <option <option value="visa">Visa</option>
+            <option value="master-card">Master card</option>
+        </select>
+        <br/>
+        <label for="card-number">Card number : *</label>
+        <input type="number" id="card-number" name="card-number" required />
+        <br/>
+        <label for="expiry-date">Expiration date : *
+            <br/>formatted as mm/yy</label>
+        <input type="text" id="expriy-date" name="expiry-name" required />
+        <br/>
+        <input type="submit" id="btn-submit" name="btn-submit">
+    </form>
+
+</body>
+
+</html>
