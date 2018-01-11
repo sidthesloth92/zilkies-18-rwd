@@ -1,0 +1,50 @@
+.left-float {
+    float: left;
+    height: 450px;
+    text-align: center;
+    padding-top: 200px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.align-center {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.header {
+    background-color: blue;
+}
+
+.left {
+    width: 20%;
+    background-color: cyan;
+}
+
+.content {
+    width: 60%;
+    background-image: url("http://images.all-free-download.com/images/graphiclarge/colorful_diagonal_stripe_vector_pattern_148288.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.right {
+    width: 20%;
+    background-color: limegreen;
+}
+
+.footer {
+    background-color: purple;
+    clear: left;
+}
+
+.container {
+    width: 100%;
+}
+
+img {
+    width: 20%;
+    float: right;
+}
