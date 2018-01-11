@@ -1,0 +1,34 @@
+{
+  "name": "zilkies-18-rwd",
+  "version": "1.0.0",
+  "description": "Exercises on RWD for Zilkies 2018 batch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server",
+    "css-lint": "stylelint ./**/*.css",
+    "js-lint": "eslint './**/*.js'"
+  },
+  "pre-commit": [
+    "css-lint",
+    "js-lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidthesloth92/zilkies-18-rwd.git"
+  },
+  "author": "Dinesh Balaji Venkataraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidthesloth92/zilkies-18-rwd/issues"
+  },
+  "homepage": "https://github.com/sidthesloth92/zilkies-18-rwd#readme",
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-google": "^0.9.1",
+    "live-server": "^1.2.0",
+    "pre-commit": "^1.2.2",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0"
+  }
+}
