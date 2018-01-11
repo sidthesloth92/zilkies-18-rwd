@@ -1,0 +1,79 @@
+.block1 {
+    background-color: blueviolet;
+    width: 100%;
+    height: 50px;
+}
+
+.block2 {
+    width: 100%;
+    height: 50px;
+    background-color: blue;
+}
+
+.block3 {
+    background-color: green;
+    width: 100%;
+    height: 50px;
+}
+
+.block4 {
+    background-color: red;
+    width: 100%;
+    height: 50px;
+}
+
+@media screen and (min-width: 400px) {
+    .block1 {
+        width: 50%;
+        height: 103px;
+        position: relative;
+        float: left;
+    }
+
+    .block2 {
+        width: 50%;
+        height: 50px;
+        float: right;
+        top: -105px;
+    }
+
+    .block3 {
+        width: 50%;
+        height: 53px;
+        float: right;
+    }
+
+    .block4 {
+        float: left;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .block1 {
+        width: 29%;
+        height: 102px;
+        float: left;
+        position: relative;
+    }
+
+    .block2 {
+        width: 40%;
+        height: 50px;
+        float: left;
+    }
+
+    .block3 {
+        width: 40%;
+        height: 50px;
+        float: left;
+    }
+
+    .block4 {
+        width: 30%;
+        height: 102px;
+        position: relative;
+        bottom: 52px;
+        float: left;
+    }
+}
+
