@@ -1,0 +1,47 @@
+.left-div {
+    background-color: blue;
+    width: 25%;
+}
+
+.middle-div {
+    background-color: cyan;
+    width: 50%;
+}
+
+.right-div {
+    background-color: green;
+    width: 25%;
+}
+
+.left-float {
+    float: left;
+    height: 200px;
+}
+
+@media screen and (max-width: 600px) {
+    .left-div {
+        width: 25%;
+    }
+
+    .middle-div {
+        width: 75%;
+    }
+
+    .right-div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .left-div {
+        width: 100%;
+    }
+
+    .middle-div {
+        width: 100%;
+    }
+
+    .right-div {
+        width: 100%;
+    }
+}
