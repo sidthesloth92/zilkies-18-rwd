@@ -1,0 +1,38 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="form2.css">
+    </head>
+    <body>
+            <h1>Payment Form</h1>
+            <p>Required fields are followed by *</p>
+            <h2>Contact Information</h2>
+            <form action="" method="post" name="pay-form">
+              <fieldset>
+               <legend>Title:</legend> 
+                <input type="radio" value="male" id="male">
+                <label for="male">Mister</label><br>
+                <input type="radio" value="female" id="female">
+                <label for="female">Miss</label>
+                <br>
+              </fieldset>  
+            <label for="name1">Name:*</label>
+              <center><input type="text" id="name1" ></center><br>
+             <label for="email">Email:*</label>
+              <center><input type="email" id="email" ></center><br>
+              <label for="pwd">Password:*</label>
+              <center><input type="password" id="pwd" ></center><br>
+              <h2>Payment Information</h2><br>
+              <label for="cont">Card Type:</label>
+              <center>
+              <select>
+                <option>Visa</option>
+                <option>Debit Card</option>
+              </select></center><br>
+              <label for="card">Card No:*</label>
+              <center><input type="text" id="card" ></center><br>
+              <label for="exp">Expiration date:*<i>formatted as mm/yy</i></label>
+              <center><input type="date" id="exp" ></center><br>
+            <center><input type="submit" id="butt" value="Validate" ></center><br>
+            </form>
+    </body>          
+</html>
