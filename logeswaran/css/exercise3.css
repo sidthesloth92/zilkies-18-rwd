@@ -4,18 +4,22 @@
     box-sizing: border-box;
     height: 100px;
 }
+
 .col-1 {
     width: 100%;
     background-color: blue;
 }
+
 .col-2 {
     width: 100%;
     background-color: cyan;
 }
+
 .col-3 {
     width: 100%;
     background-color: green;
 }
+
 .col-4 {
     width: 100%;
     background-color: red;
@@ -26,12 +30,15 @@
         width: 50%;
         height: 200px;
     }
+
     .col-2 {
         width: 50%;
     }
+
     .col-3 {
         width: 50%;
     }
+
     .col-4 {
         width: 100%;
     }
@@ -42,15 +49,19 @@
         width: 25%;
         height: 200px;
     }
+
     .col-2 {
         width: 50%;
     }
+
     .col-3 {
         width: 50%;
     }
+
     .col-4 {
         width: 25%;
         height: 200px;
+        position: relative;
+        top: -100px;
     }
-
 }

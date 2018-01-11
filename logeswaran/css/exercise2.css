@@ -4,22 +4,27 @@
     box-sizing: border-box;
     height: 100px;
 }
+
 .col-1 {
     width: 100%;
     background-color: blue;
 }
+
 .col-2 {
     width: 100%;
     background-color: cyan;
 }
+
 .col-3 {
     width: 100%;
     background-color: green;
 }
+
 .col-4 {
     width: 100%;
     background-color: red;
 }
+
 .col-5 {
     width: 100%;
     background-color: orange;
@@ -29,15 +34,19 @@
     .col-1 {
         width: 100%;
     }
+
     .col-2 {
         width: 50%;
     }
+
     .col-3 {
         width: 50%;
     }
+
     .col-4 {
         width: 100%;
     }
+
     .col-5 {
         width: 100%;
     }
@@ -47,15 +56,19 @@
     .col-1 {
         width: 50%;
     }
+
     .col-2 {
         width: 50%;
     }
+
     .col-3 {
         width: 33.34%;
     }
+
     .col-4 {
         width: 33.33%;
     }
+
     .col-5 {
         width: 33.33%;
     }

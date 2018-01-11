@@ -4,14 +4,17 @@
     box-sizing: border-box;
     height: 100px;
 }
+
 .col-1 {
     width: 100%;
     background-color: blue;
 }
+
 .col-2 {
     width: 100%;
     background-color: cyan;
 }
+
 .col-3 {
     width: 100%;
     background-color: green;
@@ -21,9 +24,11 @@
     .col-1 {
         width: 25%;
     }
+
     .col-2 {
         width: 75%;
     }
+
     .col-3 {
         width: 100%;
     }
@@ -33,9 +38,11 @@
     .col-1 {
         width: 25%;
     }
+
     .col-2 {
         width: 50%;
     }
+
     .col-3 {
         width: 25%;
     }
