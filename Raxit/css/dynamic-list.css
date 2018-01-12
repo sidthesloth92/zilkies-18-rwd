@@ -1,0 +1,36 @@
+.uncheck {
+    text-decoration: line-through;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dimensions {
+    width: 15%;
+    height: 150px;
+    margin: 20px;
+}
+
+.remove-buttons-style {
+    position: relative;
+    float: right;
+    background: red;
+    color: white;
+}
+
+.uncheck-buttons-style {
+    position: relative;
+    float: right;
+    background: green;
+    color: white;
+}
+
+.flex-column {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    float: left;
+    border: 3px solid red;
+}
