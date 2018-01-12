@@ -1,0 +1,16 @@
+.delete {
+    border: 2px solid red;
+    position: absolute;
+    right: 100px;
+}
+
+.strike {
+    border: 2px solid green;
+    position: absolute;
+    right: 300px;
+}
+
+.text-box {
+    border-color: gray;
+}
+
