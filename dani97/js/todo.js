@@ -43,8 +43,3 @@ function deleteTask(event) {
   }
 
 }
-
-function completeTask(event) {
-  element = event.srcElement;
-  
-}

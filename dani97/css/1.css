@@ -21,13 +21,13 @@
     background: darkgreen;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 0px) {
     .col-sm-12 {
         width: 100%;
     }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
     .col-me-3 {
         width: 20%;
     }
@@ -41,9 +41,9 @@
     }
 }
 
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 1200px) {
     .col-lg-2 {
-        width: 24%;
+        width: 20%;
     }
 
     .col-lg-6 {

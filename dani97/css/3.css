@@ -1,10 +1,9 @@
 .container {
-    font-size: 1px;
+    font-size: 0px;
 }
 
 .col {
-    height: 200px;
-    background: green;
+    height: 200px;  
     box-sizing: border-box;
     float: left;
 }
@@ -47,6 +46,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .col {
+        float: right;
+    }
+
     .col-1,.col-4 {
         height: 400px;
         width: 25%;
@@ -58,5 +61,9 @@
 
     .col-3 {
         width: 50%;
+    }
+
+    .col-4 {
+        float: left;
     }
 }
