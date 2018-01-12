@@ -30,23 +30,7 @@
 }
 
 @media screen and (min-width: 300px) {
-    .col-1 {
-        width: 100%;
-    }
-
-    .col-2 {
-        width: 100%;
-    }
-
-    .col-3 {
-        width: 100%;
-    }
-
-    .col-4 {
-        width: 100%;
-    }
-
-    .col-5 {
+    .col {
         width: 100%;
     }
 }
