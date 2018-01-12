@@ -1,4 +1,4 @@
-var countryList = document.getElementsByClassName("list");
+    var countryList = document.getElementsByClassName("list");
 function myFunction() {
     var countryName = document.getElementById("country");
     var errorMessage = document.getElementsByClassName("error-message");
