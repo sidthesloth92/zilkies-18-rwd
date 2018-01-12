@@ -19,7 +19,7 @@ function buttonClick() {
     var deleteButton = document.createElement("button");
     deleteButton.innerText = "x";
     deleteButton.classList.add("delete");
-    deleteButton.style.flex="1";
+    deleteButton.style.flex = "1";
     deleteButton.setAttribute("id", "close" + childCount);
     list.appendChild(deleteButton);
     var strikeButton = document.createElement("button");
