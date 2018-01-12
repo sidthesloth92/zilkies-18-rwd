@@ -39,7 +39,11 @@ function performTask(event) {
     }
   }
   else if(element.classList.contains("task-finish")){
+    if(!element.parentNode.classList.contains("strike")){
     element.parentNode.classList.add("strike");
+    }else {
+      element.parentNode.classList.remove("strike");
+    }
   }
   else{
     
