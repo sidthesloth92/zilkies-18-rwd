@@ -1,5 +1,5 @@
 function insertTask() {
-   var task = document.getElementsByClassName("my-task")[0].value;
+  var task = document.getElementsByClassName("my-task")[0].value;
   if(task.length<=0){
     alert("pls insert a valid task");
     return;
@@ -28,11 +28,12 @@ function insertTask() {
 
 function deleteTask(event) {
   
-   element = event.srcElement;
-   console.log(element);
+  element = event.srcElement;
+  console.log(element);
   if(element.classList.contains("task-close")){
-   if(confirm("deleting element")){       element.parentNode.parentNode.removeChild(element.parentNode);
-                                  }
+    if(confirm("deleting element")){
+      element.parentNode.parentNode.removeChild(element.parentNode);
+    }
   }
   else if(element.classList.contains("task-finish")){
     element.parentNode.classList.add("strike");
@@ -40,7 +41,7 @@ function deleteTask(event) {
   else{
     
   }
-  //
+
 }
 
 function completeTask(event) {
