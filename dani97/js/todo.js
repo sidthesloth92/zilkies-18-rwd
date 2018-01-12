@@ -1,9 +1,10 @@
 function insertTask() {
   var task = document.getElementsByClassName("my-task")[0].value;
-  if(task.length<=0){
+  if(task.length<=0||task.trim().length<=0){
     document.getElementsByClassName("my-task")[0].classList.add("validation-alert");
-    alert("pls insert a valid task");
-    document.getElementsByClassName("my-task")[0].classList.remove("validation-alert");
+    //delay for chrome browser
+    setTimeout(function () {alert("pls insert a valid task")},200);
+    setTimeout(function () {document.getElementsByClassName("my-task")[0].classList.remove("validation-alert")},500);
     return;
   }
   var fragment = document.createDocumentFragment();
