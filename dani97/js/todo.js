@@ -1,7 +1,9 @@
 function insertTask() {
   var task = document.getElementsByClassName("my-task")[0].value;
   if(task.length<=0){
+    document.getElementsByClassName("my-task")[0].classList.add("validation-alert");
     alert("pls insert a valid task");
+    document.getElementsByClassName("my-task")[0].classList.remove("validation-alert");
     return;
   }
   var fragment = document.createDocumentFragment();
@@ -26,7 +28,7 @@ function insertTask() {
   list.appendChild(fragment);
 }
 
-function deleteTask(event) {
+function performTask(event) {
   
   element = event.srcElement;
   console.log(element);

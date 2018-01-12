@@ -1,9 +1,24 @@
+.tasks {
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .task {
     position: relative;
-    height: 70px;
+    height: 250px;
+    width: 25%;
     background: skyblue;
     text-align: center;
     margin: 2px;
+    
+}
+
+input,button{
+    width: 200px;
+    height: 25px;
+    text-align: center;
 }
 
 .task-close, .task-finish {
@@ -24,4 +39,8 @@
 
 .strike {
     text-decoration: line-through;
+}
+
+.validation-alert {
+    border: 2px solid brown;
 }
