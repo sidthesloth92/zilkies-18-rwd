@@ -1,0 +1,17 @@
+.container {
+    margin-left: 35%;
+}
+
+.todo-list {
+    font-size: 21px;
+     
+}
+button {
+    backface-visibility: hidden;
+}
+a {
+    padding-left: 10%;
+}
+li {
+    padding: 5px;
+}
