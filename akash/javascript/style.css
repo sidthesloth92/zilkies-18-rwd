@@ -4,14 +4,46 @@
 
 .todo-list {
     font-size: 21px;
-     
 }
+
 button {
     backface-visibility: hidden;
 }
+
 a {
     padding-left: 10%;
 }
+
 li {
-    padding: 5px;
+    padding: 0px 0px 15px 15px;
+    width: 340px;
+    margin-bottom: 15px;
+}
+
+.inline {
+    display: inline;
+}
+
+.container-div {
+    position: relative;
+    right: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    top: 3px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.todo-error {
+    border: 1px solid red;
+}
+
+a {
+    float: right;
 }
