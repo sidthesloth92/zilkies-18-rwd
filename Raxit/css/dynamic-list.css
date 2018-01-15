@@ -8,13 +8,8 @@
     flex-wrap: wrap;
 }
 
-.dimensions {
-    width: 15%;
-    height: 150px;
-    margin: 20px;
-}
-
-.remove-buttons-style {
+.remove-buttons-style,
+.uncheck-buttons-style {
     position: relative;
     float: right;
     background: red;
@@ -22,15 +17,15 @@
 }
 
 .uncheck-buttons-style {
-    position: relative;
-    float: right;
     background: green;
-    color: white;
 }
 
-.flex-column {
+.div-styling {
     -webkit-flex-direction: row;
     flex-direction: row;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
     float: left;
     border: 3px solid red;
 }
