@@ -4,6 +4,10 @@
 
 .todo-list {
     font-size: 21px;
+    position: relative;
+    right: 100px;
+    top: 20px;
+
 }
 
 button {
@@ -18,6 +22,7 @@ li {
     padding: 0px 0px 15px 15px;
     width: 340px;
     margin-bottom: 15px;
+    width: 800px;
 }
 
 .inline {
@@ -46,4 +51,8 @@ input[type="checkbox"] {
 
 a {
     float: right;
+}
+
+td,th {
+    padding: 7px;
 }
