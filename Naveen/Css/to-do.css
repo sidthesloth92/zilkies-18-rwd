@@ -1,7 +1,7 @@
 li {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 80px;
     width: 500px;
-    height: 40px;
     background-color: green;
     font-size: 20px;
     padding-left: 20px;
@@ -10,7 +10,7 @@ li {
 }
 
 ul li::before {
-    content: '✓ ';
+    content: '✓';
 }
 
 .error {
@@ -26,7 +26,14 @@ ul li::before {
     text-decoration: line-through;
 }
 
-span {
+.listText {
+    display: inline-block;
+    width: 250px;
+    height: 70px;
+    word-wrap: break-word;
+}
+
+.listButton {
     position: absolute;
     display: inline-block;
     font-size: 20px;
@@ -36,7 +43,7 @@ span {
     background-color: blue;
 }
 
-span:hover {
+.listButton:hover {
     background-color: pink;
     cursor: pointer;
 }
@@ -52,5 +59,6 @@ span:hover {
 ul {
     list-style: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
