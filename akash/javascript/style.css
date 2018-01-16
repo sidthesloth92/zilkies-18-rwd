@@ -1,5 +1,5 @@
 .container {
-    margin-left: 35%;
+    margin-left: 70px;
 }
 
 .todo-list {
@@ -7,7 +7,6 @@
     position: relative;
     right: 100px;
     top: 20px;
-
 }
 
 button {
@@ -22,7 +21,7 @@ li {
     padding: 0px 0px 15px 15px;
     width: 340px;
     margin-bottom: 15px;
-    width: 800px;
+    width: 100%;
 }
 
 .inline {
@@ -31,9 +30,12 @@ li {
 
 .container-div {
     position: relative;
-    right: 3%;
+    margin-bottom: 5px;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    flex-grow: 125;
+    border: 1px solid orange;
 }
 
 input[type="checkbox"] {
@@ -49,10 +51,16 @@ input[type="checkbox"] {
     border: 1px solid red;
 }
 
-a {
+a,
+i {
     float: right;
 }
 
-td,th {
+td,
+th {
     padding: 7px;
+}
+
+h1 {
+    text-align: center;
 }
