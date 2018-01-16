@@ -12,11 +12,11 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    <input type = "text" name = "my-task" class = "my-task" onfocus = "removeValidation()">
+    <input type = "text" name = "my-task" class = "my-task">
     <button onclick = "insertTask(false)" class="add">Add Task </button>
     <button onclick = "loadJSON()">Retrive from web</button>
-    <div class="tasks" onclick="performTask(event)">
-    </div>
+    <div class="tasks">
+    </div>  
     <script src = "../js/todo.js"></script>
 </body>
 </html>
