@@ -15,11 +15,14 @@ function addToArray() {
 
     var inputValue = document.getElementById("todo").value;
     id = id + 1;
-    addToList(id, inputValue)
+    //Creating Fragment
+    var fragment = document.createDocumentFragment();
+    var returnFragment = addToList(id, inputValue, fragment);
+    addToFragment(returnFragment);
+
 }
 
-function addToList(itemId, itemDescription) {
-
+function addToList(itemId, itemDescription, fragment) {
 
 
     if (itemDescription == "") {
@@ -29,8 +32,7 @@ function addToList(itemId, itemDescription) {
     } else {
         document.getElementById("todo").classList.remove("todo-error");
 
-        //Creating Fragment
-        var fragment = document.createDocumentFragment();
+
 
         //Creating List Tag
         var list = document.createElement("LI");
@@ -81,20 +83,32 @@ function addToList(itemId, itemDescription) {
         //Appending div to fragment
         fragment.appendChild(div);
 
-        //Appending fragment to unordered list
-        document.getElementById("unordered-list").appendChild(fragment);
 
-        document.getElementById("todo").value = '';
-        document.getElementById("todo").placeholder = "Type here...";
 
         var arrayItem = new Item(itemId, itemDescription);
 
         arrayOfItem.push(arrayItem);
 
+        return fragment;
+
 
 
     }
 
+
+
+
+
+
+
+}
+
+function addToFragment(fragment) {
+    //Appending fragment to unordered list
+    document.getElementById("unordered-list").appendChild(fragment);
+
+    document.getElementById("todo").value = '';
+    document.getElementById("todo").placeholder = "Type here...";
 }
 
 
@@ -107,6 +121,7 @@ function deleteItems(event) {
         var element = document.getElementById(getId[1]).parentNode;
         console.log(element);
         element.parentNode.removeChild(element);
+
 
         for (var i = 0; i < arrayOfItem.length; i++) {
 
@@ -130,7 +145,7 @@ function check(event) {
 }
 
 
-
+var addBulkItems = [];
 
 function retrieveList() {
 
@@ -140,15 +155,31 @@ function retrieveList() {
 
             json = this.response;
             jsonParse = JSON.parse(json);
+
+
+
+            //Creating Fragment
+            var fragment = document.createDocumentFragment();
+
+
             for (var i = 0; i < jsonParse.length; i++) {
                 var getItemId = jsonParse[i].id;
                 var getItemTitle = jsonParse[i].title;
 
                 var arrayItem = new Item(getItemId, getItemTitle);
+
+
+
+
                 arrayOfItem.push(arrayItem);
 
-                addToList(getItemId,getItemTitle);
+                fragment = addToList(getItemId, getItemTitle, fragment);
+
+
             }
+
+            addToFragment(fragment);
+
 
 
         }
