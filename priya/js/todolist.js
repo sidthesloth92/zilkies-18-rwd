@@ -35,7 +35,8 @@ var handler = {
     },
     deleteItem: function (positionToDelete) {
         todoItemsList.deleteItem(positionToDelete);
-        var deleteElement = document.querySelector('div[data-id="'+positionToDelete+'"]').remove();
+        var deleteElement = document.querySelector('div[data-id="'+positionToDelete+'"]');
+        deleteElement.remove();
         addList(todoCollection.length,todoCollection);
     }
 };
@@ -63,7 +64,7 @@ var view = {
 
 view.callEventListener();
 
-function getListData() {
+document.getElementById('retrieve-json').addEventListener('click', function(){
     var request = new window.XMLHttpRequest();
     request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
     request.onreadystatechange = function () {
@@ -76,8 +77,10 @@ function getListData() {
         }
     };
     request.send();
-}
 
+});
+
+    
 function addToList(todoJSON) {
     if (todoJSON == null || todoJSON.trim() == '')
         return;
