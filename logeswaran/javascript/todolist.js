@@ -16,7 +16,7 @@ function displayTasks() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             tasks = JSON.parse(this.responseText);
-            for (count = 0; count < 10; count++ , i++) {
+            for (var count = 0; count < 10; count++ , i++) {
                 addToDocumentFragment(tasks[i].id, tasks[i].title, fragment);
             }
             document.getElementsByTagName('ul')[0].appendChild(fragment);
