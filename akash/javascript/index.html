@@ -15,22 +15,28 @@
     <div class="container">
         <h1>To-Do List</h1>
 
-        <table>
-            <tr>
-                <td>
-                    <input type="text" placeholder="Type here...." class="input-textbox" size="35" name="todo" id="todo">
-                </td>
-                <td>
-                    <input type="button" name="Add" onclick="addToArray()" value="Add to List">
-                </td>
-                <td>
-                    <input type="button" name="Retrieve" onclick="retrieveList()" value="Retrieve List">
-                </td>
-            </tr>
-        </table>
+        <div class="input-container">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Type here...." class="input-textbox adjust-height" size="35" name="todo" id="todo">
+                    </td>
+                    <td>
+                        <input type="button" name="Add" onclick="addToArray()" class="adjust-height" value="Add to List">
+                    </td>
+                    <td>
+                        <input type="button" name="Retrieve" onclick="retrieveList()" class="adjust-height" value="Retrieve List">
+                    </td>
+                </tr>
+            </table>
 
-        <div class="todo-list">
-            <ul id="unordered-list">
+        </div>
+
+
+        <div class="item-container">
+            <ul id="unordered-list" class="unordered-list-container" onclick="eventListener(event)">
+
+
 
 
             </ul>

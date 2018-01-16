@@ -11,10 +11,16 @@ var Item = function (itemId, itemDescription) {
 
 }
 
+function generateId() {
+
+    return id + 1;
+}
+
 function addToArray() {
 
     var inputValue = document.getElementById("todo").value;
-    id = id + 1;
+    id = generateId();
+
     //Creating Fragment
     var fragment = document.createDocumentFragment();
     var returnFragment = addToList(id, inputValue, fragment);
@@ -25,80 +31,18 @@ function addToArray() {
 function addToList(itemId, itemDescription, fragment) {
 
 
-    if (itemDescription == "") {
+    if (itemDescription.length == 0) {
         alert("Enter Valid Text");
         document.getElementById("todo").classList.add("todo-error");
 
     } else {
         document.getElementById("todo").classList.remove("todo-error");
 
-
-
-        //Creating List Tag
-        var list = document.createElement("LI");
-        var text = document.createTextNode(itemDescription);
-
-
-
-
-        // Creating Anchor Tag
-        var a = document.createElement("a");
-        a.classList.add("button");
-        a.setAttribute("href", "#");
-
-
-
-        // Creating I tag
-        var i = document.createElement("i");
-        i.classList.add("fa");
-        i.classList.add("fa-times-circle");
-        i.addEventListener('click', function () {
-            deleteItems(event);
-        });
-        i.setAttribute("id", "close-" + id);
-        a.appendChild(i);
-
-
-
-        list.setAttribute("id", id);
-        list.classList.add("inline");
-
-        list.appendChild(text);
-
-
-        //Event Listener for input checkbox
-        var input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
-        input.addEventListener('click', function () {
-            check(event);
-        });
-
-
-        //Creating div element
-        var div = document.createElement("div");
-        div.appendChild(input);
-        div.appendChild(list).appendChild(a);
-        div.classList.add("container-div");
-
-        //Appending div to fragment
-        fragment.appendChild(div);
-
-
-
-        var arrayItem = new Item(itemId, itemDescription);
-
-        arrayOfItem.push(arrayItem);
+        fragment = addItems(itemId, itemDescription, fragment);
 
         return fragment;
 
-
-
     }
-
-
-
-
-
 
 
 }
@@ -112,35 +56,99 @@ function addToFragment(fragment) {
 }
 
 
-function deleteItems(event) {
+function addItems(itemId, itemDescription, fragment) {
 
-    var confirmDelete = confirm("Are you sure to delete Item? ");
-    if (confirmDelete == true) {
-        var id = event.target.id;
-        var getId = (id.split("-"));
-        var element = document.getElementById(getId[1]).parentNode;
-        console.log(element);
-        element.parentNode.removeChild(element);
+    fragment = insertIntoDOM(itemId, itemDescription, fragment);
+    insertIntoArray(itemId, itemDescription);
 
+    return fragment;
 
-        for (var i = 0; i < arrayOfItem.length; i++) {
-
-            if (arrayOfItem[i].itemId == getId[1]) {
-                arrayOfItem.splice(i, 1);
-            }
-        }
-
-
-
-    }
 }
 
-function check(event) {
+function insertIntoDOM(itemId, itemDescription, fragment) {
 
-    console.log("hello");
-    console.log(event.target.tagName);
-    var input = event.target;
-    console.log(input.parentNode.childNodes[1].classList.toggle("strike"));
+
+    //Creating List Tag
+    var list = document.createElement("li");
+    var text = document.createTextNode(itemDescription);
+
+
+
+
+    // Creating I tag
+    var i = document.createElement("i");
+    i.classList.add("fa");
+    i.classList.add("fa-times-circle");
+    i.addEventListener('click', function () {
+        deleteItems(event);
+    });
+    i.dataset.close = itemId;
+
+
+
+
+    list.setAttribute("id", itemId);
+    list.classList.add("item");
+
+    list.appendChild(text);
+
+
+    //Event Listener for input checkbox
+    var input = document.createElement("input");
+    input.setAttribute("type", "checkbox");
+
+
+
+    //Creating div element
+    var div = document.createElement("div");
+    div.dataset.id = itemId;
+    div.appendChild(input);
+    div.appendChild(list);
+    div.appendChild(i);
+    div.classList.add("item-div");
+
+    //Append div to fragment
+    fragment.appendChild(div);
+
+
+    return fragment;
+
+
+}
+
+function insertIntoArray(itemId, itemDescription) {
+
+    var arrayItem = new Item(itemId, itemDescription);
+
+    arrayOfItem.push(arrayItem);
+
+}
+
+
+
+
+
+
+
+function eventListener(event) {
+
+    var tagName = (event.target.tagName);
+
+    var parentId = event.target.parentNode.dataset.id;
+
+
+    if (tagName == "I") {
+        var confirmDelete = confirm("Are you sure to delete Item? ");
+        event.preventDefault();
+        if (confirmDelete == true) {
+            document.querySelector("div[data-id='" + parentId + "']").remove();
+
+        }
+    }
+    if (tagName == "INPUT") {
+
+        event.target.parentNode.childNodes[1].classList.toggle("strike");
+    }
 
 }
 
