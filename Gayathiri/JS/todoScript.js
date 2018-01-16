@@ -1,7 +1,17 @@
 
 var listArray = [];
-function getList() {
-    getJSON();
+
+
+function getLocalStorage()
+{
+  
+  var localStorageTasks=localStorage.getItem('tasks');
+  
+  var parsedObject = JSON.parse(localStorageTasks);
+  
+ for(var i=0;i<parsedObject.length;i++)
+        createTask(parsedObject[i].desc);
+  
 }
 
 function getJSON() {
@@ -72,7 +82,7 @@ function createTask(inputValue) {
         fragment.appendChild(li);
         myUL.appendChild(fragment);
         listArray.push(new task(inputValue));
-    
+        localStorage.setItem('tasks',JSON.stringify(listArray));
    
     }
     document.getElementById('myInput').value = '';
@@ -97,6 +107,7 @@ function createTask(inputValue) {
                     if (listArray[i].id == position) {
 
                         listArray.splice(i, 1);
+                        localStorage.setItem('tasks',JSON.stringify(listArray));
 
                     }
                 }
@@ -120,8 +131,9 @@ list.addEventListener('click', function (event) {
                 else
                     listArray[i].flag = false;
 
-
+             
             }
+            localStorage.setItem('tasks',JSON.stringify(listArray));
         }
 
     }

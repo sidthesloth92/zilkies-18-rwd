@@ -3,7 +3,7 @@ body {
     font-family: cursive;
 }
 
-ul{
+ul {
     display: flex;
     flex-direction: column;
 }
@@ -20,7 +20,7 @@ ul li {
     border-style: ridge;
     border-width: medium;
     font-family: cursive;
-    display: inline-flex;
+    flex-grow: 1;
 }
 
 ul li.checked {
