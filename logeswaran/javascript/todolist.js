@@ -27,17 +27,17 @@ function displayTasks() {
 }
 
 function addToDocumentFragment(id, title, fragment) {
-    var li = document.createElement('li');
+    var listItem = document.createElement('li');
     var taskText = document.createElement('span');
     var checkButton = document.createElement('button');
     var deleteButton = document.createElement('button');
     taskText.textContent = title;
     taskText.classList.add('task-content')
-    li.appendChild(taskText);
-    li.appendChild(checkButton);
-    li.appendChild(deleteButton);
-    fragment.appendChild(li);
-    li.dataset.id = id;
+    listItem.appendChild(taskText);
+    listItem.appendChild(checkButton);
+    listItem.appendChild(deleteButton);
+    fragment.appendChild(listItem);
+    listItem.dataset.id = id;
     checkButton.innerHTML = "Check";
     deleteButton.innerHTML = "Delete";
     document.getElementById('task-text').value = '';
