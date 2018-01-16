@@ -1,0 +1,64 @@
+li {
+    margin-top: 10px;
+    margin-left: 80px;
+    width: 500px;
+    background-color: green;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    position: relative;
+}
+
+ul li::before {
+    content: '✓';
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.add-button {
+    background-color: brown;
+    width: 100px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.listText {
+    display: inline-block;
+    width: 250px;
+    height: 70px;
+    word-wrap: break-word;
+}
+
+.listButton {
+    position: absolute;
+    display: inline-block;
+    font-size: 20px;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    background-color: blue;
+}
+
+.listButton:hover {
+    background-color: pink;
+    cursor: pointer;
+}
+
+.delete-button {
+    right: 20px;
+}
+
+.checked-button {
+    right: 150px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

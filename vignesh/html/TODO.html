@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8" />
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <title>To Do list item</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <link rel = "stylesheet" type = "text/css" href = "../css/todo_style.css">
+</head>
+<body>
+    <section>
+        <h1>TO DO List Application</h1>
+        <input type = "text" class = "to-do-item"/>
+        <button class = "add" onclick = "addTask()">add</button>
+        <button onclick = "loadData()">load external data</button>
+        <br>
+    </section>
+    <ul class = "list" onclick = "removeItem(event)"></ul>
+    <script src = "../js/todo_actions.js"></script>
+</body>
+</html>

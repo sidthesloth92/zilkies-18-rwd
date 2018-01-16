@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "live-server",
-    "css-lint": "stylelint ./**/*.css",
-    "js-lint": "eslint './**/*.js'"
+    "css-lint": "stylelint ./SowmyaS/**/*.css",
+    "js-lint": "eslint ./SowmyaS/**/*.js"
   },
   "pre-commit": [
     "css-lint",

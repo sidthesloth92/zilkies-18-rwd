@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dynamic List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/dynamic-list.css">
+</head>
+<body>
+    <label for="task">Enter the task : </label>
+    <input id="task" type="text" placeholder="eg: eat lunch"><br/><br/>
+    <button onclick="myFunction()">Enter</button>
+    <button onclick="loadData()">Load data</button>
+    <p class="error-message"></p>
+    <ul class="jsonDataList list" onclick="list(event)">
+    </ul>
+    <script src="../JS/dynamic-list.js"></script>
+</body>
+</html>
