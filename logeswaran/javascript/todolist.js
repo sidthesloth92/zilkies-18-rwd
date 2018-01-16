@@ -3,6 +3,7 @@ document.getElementById('ul-container').addEventListener('click', alterTask);
 document.getElementById('task-fetch').addEventListener('click', displayTasks);
 
 var i = 0;
+var taskStorage = [] ;
 
 function TaskClass(id, title) {
     this.id = id;
@@ -11,7 +12,6 @@ function TaskClass(id, title) {
 
 function displayTasks() {
     var fragment = document.createDocumentFragment();
-    var tasks;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -41,6 +41,9 @@ function addToDocumentFragment(id, title, fragment) {
     checkButton.innerHTML = "Check";
     deleteButton.innerHTML = "Delete";
     document.getElementById('task-text').value = '';
+    var newTask = new TaskClass(id, title);
+    taskStorage.push(newTask);
+    console.log(taskStorage);
 }
 
 function addTask(event) {
@@ -53,7 +56,7 @@ function addTask(event) {
     i++;
     addToDocumentFragment(i, title, fragment);
     document.getElementsByTagName('ul')[0].appendChild(fragment);
-    var newTask = new TaskClass(i, title);
+    
 }
 
 function alterTask(event) {
@@ -69,6 +72,7 @@ function alterTask(event) {
     if (event.srcElement.textContent == 'Delete') {
         if (window.confirm("Do you want to delete this item?")) {
             document.getElementById('ul-container').removeChild(listItem);
+            taskStorage.splice(id,1);
         }
     }
 }
