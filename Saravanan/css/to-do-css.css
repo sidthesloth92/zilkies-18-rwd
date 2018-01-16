@@ -1,0 +1,66 @@
+#user-input-list-item , #add-list-items, #fetch-list-items {
+    padding: 1%;
+    margin-left: 2%; 
+}
+#add-list-items:hover,#fetch-list-items:hover {
+    background-color: limegreen;
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+    margin-top: 2%;
+}
+#to-do-list-items {
+    margin: 5% 0 0 0;
+    -webkit-padding-start:0px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+li {
+    min-height: 30px;
+    margin-top:5px;
+    margin-left: 5%;
+    list-style: none;
+    color: white;
+    padding: 1%;
+    width: 90%;
+    background-color: cornflowerblue;
+}
+.strike {
+    text-decoration: line-through;
+}
+.list-item-check {
+    float: right;
+    padding: 0.5%;
+    flex: auto;
+    margin-right: 1%;
+}
+.list-item-check:hover {
+    background-color: green;
+    cursor: pointer;
+}
+.list-item-delete {
+    float: right;
+    padding: 0.5%;
+    flex: auto;
+}
+.list-item-delete:hover {
+    background-color: red;
+    cursor: pointer;
+}
+.list-item-description {
+    display: inline-block;
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.div-1 {
+    margin: 5% 0 0 3%;
+    font-weight: bold;
+}
+.red-border {
+    border: 1px solid red;
+}
+.none-border {
+    border: 1px solid;
+}

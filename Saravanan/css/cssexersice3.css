@@ -1,6 +1,6 @@
 .height {
     height: 200px;
-    float: left;
+    float: right;
 }
 
 .col1 {
@@ -73,8 +73,7 @@
 
     .col4 {
         width: 20%;
-        position: relative;
-        bottom: 100px;
         height: 200px;
+        float: none;
     }
 }
