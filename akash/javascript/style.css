@@ -1,0 +1,94 @@
+body {
+    background-color: cyan;
+  
+}
+.input-container {
+    margin-left: 50px;
+}
+
+.todo-list {
+    font-size: 21px;
+    position: relative;
+    right: 100px;
+    top: 20px;
+}
+
+button {
+    backface-visibility: hidden;
+}
+
+li {
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 22px;
+}
+
+.item {
+    display: inline;
+}
+
+.item-div {
+    position: relative;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid rgb(139, 20, 236);
+    display: flex;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    top: 3px;
+    flex-basis: 42px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.todo-error {
+    border: 1px solid red;
+}
+
+li {
+    display: flex;
+    flex-grow: 1;
+}
+
+i {
+    flex-grow: 0;
+    height: 20px;
+    width: 42px;
+    padding-top: 5px;
+}
+
+td,
+th {
+    padding: 7px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.unordered-list-container {
+    padding: 0px;
+}
+
+.adjust-height {
+    height: 30px;
+}
+
+i:hover {
+    color: white;
+}
+
+.item-container {
+    overflow-y:auto;
+    max-height: 520px;
+}
+
+.container {
+    overflow: initial;
+    
+}
