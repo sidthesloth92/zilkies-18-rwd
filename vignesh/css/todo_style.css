@@ -1,0 +1,51 @@
+.remove-item {
+    border-radius: 10px;
+    background-color: #ff0000;
+    color: white;
+    height: 25px;
+}
+
+.check-item {
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    height: 25px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: cyan;
+    border: 1px solid red;
+    margin: 2px;
+    width: 45%;
+    min-height: 50px;
+}
+
+section {
+    border: 1px solid red;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10px;
+    text-align: center;
+}
+
+span {
+    flex-grow: 5;
+}
