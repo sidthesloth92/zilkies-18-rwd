@@ -32,10 +32,11 @@ function Task (taskName) {
     var element = window.document.createElement('div');
     var close = window.document.createElement('button');
     var check = window.document.createElement('button');
+    var content = document.createElement('span');
     //dom element creation
-    element.textContent = _taskName;
+    content.textContent = _taskName;
+    content.classList.add('task-content');
     element.classList.add('task');
-    
     element.setAttribute('id','task-'+Task.id);
     check.classList.add('task-finish');
     close.classList.add('task-close');
@@ -43,8 +44,9 @@ function Task (taskName) {
     check.classList.add('glyphicon-ok');
     close.classList.add('glyphicon');
     close.classList.add('glyphicon-remove');
-    element.appendChild(close);
+    element.appendChild(content);
     element.appendChild(check);
+    element.appendChild(close);
     fragment.appendChild(element);
 
     this.getContent = function () {
