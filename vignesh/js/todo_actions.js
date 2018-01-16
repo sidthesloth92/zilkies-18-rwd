@@ -116,4 +116,7 @@ document.getElementById('list').addEventListener('click',function remove1Item(ev
     removeItem(event);
 });
 
-document.getElementById('load').addEventListener('click',loadData);
+document.getElementById('load').addEventListener('click',function loadExternalData(){
+    document.getElementById('load').disabled = true;
+    loadData();
+});
