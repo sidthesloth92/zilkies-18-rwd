@@ -1,0 +1,44 @@
+.menu {
+    list-style: none;
+    height: 70px;
+    background: cyan;
+}
+
+.menu-items {
+    position: relative;
+    background: green;
+    margin: 15px;
+    width: 90px;
+    height: 30px;
+    float: left;
+}
+
+.menu-items:hover {
+    background: yellow;
+}
+
+.sub-menu {
+    height: 120px;
+    width: 90px;
+    position: absolute;
+    list-style: none;
+    display: none;
+}
+
+.menu-items:hover .sub-menu {
+    display: block;
+}
+
+.border-red {
+    border: 2px solid red;
+}
+
+.sub-menu-items {
+    height: 20px;
+    width: 70px;
+    margin: 10px;
+}
+
+.sub-menu-items:hover {
+    background: green;
+}

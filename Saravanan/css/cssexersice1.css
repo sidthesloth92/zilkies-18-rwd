@@ -1,0 +1,58 @@
+.height {
+    height: 200px;
+    float: left;
+}
+
+.col1 {
+    background-color: blue;
+}
+
+.col2 {
+    background-color: cyan;
+}
+
+.col3 {
+    background-color: green;
+}
+
+@media screen and (min-width: 400px) {
+    .col1 {
+        width: 100%;
+    }
+
+    .col2 {
+        width: 100%;
+    }
+
+    .col3 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .col1 {
+        width: 25%;
+    }
+
+    .col2 {
+        width: 75%;
+    }
+
+    .col3 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .col1 {
+        width: 25%;
+    }
+
+    .col2 {
+        width: 50%;
+    }
+
+    .col3 {
+        width: 25%;
+    }
+}

@@ -1,0 +1,48 @@
+.tasks {
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.task {
+    position: relative;
+    height: 250px;
+    width: 22%;
+    background: skyblue;
+    text-align: center;
+    margin: 2px;
+    border-radius: 2%;
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.my-task,.add {
+    width: 200px;
+    height: 25px;
+    text-align: center;
+}
+
+.task-close, .task-finish {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 20px;
+    width: 30px;
+    border: 1px solid;
+    background: red;
+    border-radius: 20%;
+}
+
+.task-finish {
+    background: green;
+    top: 40px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.validation-alert {
+    border: 2px solid brown;
+}

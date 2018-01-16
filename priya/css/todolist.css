@@ -1,16 +1,31 @@
-.delete {
-    border: 2px solid red;
-    position: absolute;
-    right: 100px;
+.item__description {
+    margin: 1px;
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
 }
 
-.strike {
-    border: 2px solid green;
+.item__list {
+    margin-top: 1px;
+    padding: 1px;
+    padding-top: 1px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.deleteButton {
     position: absolute;
-    right: 300px;
+    right: 1px;
+    border: 2px solid red;
+    padding: 1px;
+    flex-basis: 100px;
 }
 
 .text-box {
     border-color: gray;
+}
+
+.strike-through {
+    text-decoration: line-through;
 }
 

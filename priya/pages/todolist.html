@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>To-do list</title>
     <link rel="stylesheet" type="text/css" href="../css/todolist.css">
 </head>
+
 <body>
-<h1>To do List</h1>
-<label for="text-input">Enter text: </label>
-<input type="text" id="text-input" class="text-box" size="100">
-<input type="submit" value="Add to list" onclick="buttonClick()">
-<ul id="unordered-list" onclick="deleteElement(event)">
-</ul>
-<script src="../js/todolist.js"></script>
+    <h1>To do List</h1>
+    <h3>Click on an element to strike it</h3>
+    <div>
+        <label for="text-input">Enter text: </label>
+        <input type="text" id="text-input" class="text-box" size="70">
+        <input type="button" onclick="handler.addItem()" value="Add item"></button>
+        <input type="button" onclick="getListData()" value="Retrieve from JSON"></button>
+    </div>
+    <div>
+    <ul id="ul">
+    </ul>
+</div>
+    <script src="../js/todolist.js"></script>
 </body>
+
 </html>

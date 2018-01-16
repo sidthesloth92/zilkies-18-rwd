@@ -1,0 +1,50 @@
+div {
+    width: 100%;
+    height: 100px;
+    background-color: blue;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.col-1 {
+    background-color: blue;
+}
+
+.col-2 {
+    background-color: green;
+}
+
+.col-3 {
+    background-color: violet;
+}
+
+@media screen and (min-width: 400px) {
+    .col-1 {
+        width: 25%;
+    }
+
+    .col-2 {
+        width: 75%;
+    }
+
+    .col-3 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .col-1 {
+        width: 25%;
+    }
+
+    .col-2 {
+        width: 50%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+}
