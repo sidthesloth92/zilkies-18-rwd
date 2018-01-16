@@ -15,6 +15,7 @@ var todoList = {
             if(todos[i].id == position)
                 todos.splice(i, 1);
         }
+       // localStorage.setItem("todo",JSON.stringify(todos));
     }
 };
 
@@ -34,6 +35,7 @@ var handlers = {
             todos.push(new addTodo(addTodoTextInput.value));
             addTodoTextInput.value = '';
             addTodosToPage();
+           // localStorage.setItem("todo",JSON.stringify(todos));
         }
     },
     deleteTodo: function (position) {
@@ -138,7 +140,7 @@ function createUiElement(todoItem,fragment,todosUl){
     todoDiv.appendChild(li);
     todoDiv.appendChild(view.createDelButton());
     todoDiv.appendChild(view.createStrikeButton());
-    li.innerHTML = todoItem.title || todoItem.todoText;    
+    li.innerHTML = todoItem.title || todoItem.todoText || todoItem;
     todosUl.appendChild(fragment);
 }
 
