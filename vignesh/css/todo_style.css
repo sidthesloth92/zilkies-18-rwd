@@ -22,9 +22,6 @@
 
 .list {
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 li {
@@ -33,8 +30,8 @@ li {
     justify-content: space-between;
     background-color: cyan;
     border: 1px solid red;
-    margin: 2px;
-    width: 45%;
+    margin: 3px;
+    width: 70%;
     min-height: 50px;
 }
 
@@ -47,5 +44,5 @@ section {
 }
 
 span {
-    flex-grow: 5;
+    flex-grow: 1;
 }
