@@ -6,10 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "live-server",
-    "css-lint": "stylelint ./**/*.css"
+    "css-lint": "stylelint ./**/*.css",
+    "js-lint": "eslint './**/*.js'"
   },
   "pre-commit": [
-    "css-lint"
+    "css-lint",
+    "js-lint"
   ],
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   },
   "homepage": "https://github.com/sidthesloth92/zilkies-18-rwd#readme",
   "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-google": "^0.9.1",
     "live-server": "^1.2.0",
     "pre-commit": "^1.2.2",
     "stylelint": "^8.4.0",

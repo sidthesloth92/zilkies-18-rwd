@@ -1,0 +1,84 @@
+.col-1 {
+    background: red;
+}
+
+.col-2 {
+    background: cyan;
+}
+
+.col-3 {
+    background: green;
+}
+
+.col-4 {
+    position: relative;
+    top: -200px;
+    background: blue;
+}
+
+.middle {
+    float: left;
+    height: 200px;
+    width: 40%;
+}
+
+.side {
+    width: 30%;
+    height: 400px;
+    float: left;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        position: relative;
+    }
+
+    .side,
+    .middle {
+        height: 400px;
+        position: absolute;
+    }
+
+    .middle {
+        height: 200px;
+        width: 50%;
+        right: 1px;
+    }
+
+    .col-3 {
+        top: 200px;
+    }
+
+    .col-4 {
+        top: 1px;
+        left: 1px;
+        width: 50%;
+    }
+
+    .col-1 {
+        height: 200px;
+        top: 400px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .set-width {
+        position: absolute;
+        height: 200px;
+        width: 100%;
+        clear: left;
+    }
+
+    .col-2 {
+        top: 200px;
+    }
+
+    .col-3 {
+        top: 400px;
+    }
+
+    .col-1 {
+        top: 600px;
+    }
+}
