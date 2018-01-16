@@ -1,15 +1,16 @@
 li {
-    margin-top: 10px;
+    margin-top: 30px;
     margin-left: 80px;
-    width: 500px;
+    max-width: 600px;
     background-color: green;
     font-size: 20px;
     padding-left: 20px;
     padding-top: 10px;
     position: relative;
+    display: flex;
 }
 
-ul li::before {
+.list-text::before {
     content: '✓';
 }
 
@@ -26,24 +27,26 @@ ul li::before {
     text-decoration: line-through;
 }
 
-.listText {
-    display: inline-block;
-    width: 250px;
-    height: 70px;
+.list-text {
+    flex-grow: 5;
+    min-height: 50px;
+    max-width: 400px;
     word-wrap: break-word;
+    padding-bottom: 10px;
 }
 
-.listButton {
-    position: absolute;
-    display: inline-block;
+.list-button {
+    flex-grow: 2;
     font-size: 20px;
     width: 80px;
     height: 30px;
+    margin-left: 20px;
+    margin-right: 5px;
     text-align: center;
     background-color: blue;
 }
 
-.listButton:hover {
+.list-button:hover {
     background-color: pink;
     cursor: pointer;
 }
@@ -58,7 +61,4 @@ ul li::before {
 
 ul {
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
