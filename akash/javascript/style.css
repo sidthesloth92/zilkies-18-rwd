@@ -18,8 +18,7 @@ a {
 }
 
 li {
-    padding: 0px 0px 15px 15px;
-    /* width: 340px; */
+    padding: 0 0 15 15;
     margin-bottom: 15px;
     width: 100%;
 }
