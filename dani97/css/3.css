@@ -1,9 +1,9 @@
 .container {
-    font-size: 0px;
+    font-size: 1px;
 }
 
 .col {
-    height: 200px;  
+    height: 200px;
     box-sizing: border-box;
     float: left;
 }
@@ -50,7 +50,8 @@
         float: right;
     }
 
-    .col-1,.col-4 {
+    .col-1,
+    .col-4 {
         height: 400px;
         width: 25%;
     }

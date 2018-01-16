@@ -1,0 +1,63 @@
+li {
+    margin-top: 30px;
+    margin-left: 80px;
+    max-width: 600px;
+    background-color: green;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    position: relative;
+    display: flex;
+}
+
+.list-text::before {
+    content: '✓';
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.add-button {
+    background-color: brown;
+    width: 100px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.list-text {
+    flex-grow: 1;
+    min-height: 50px;
+    max-width: 400px;
+    word-wrap: break-word;
+    padding-bottom: 10px;
+}
+
+.list-button {
+    font-size: 20px;
+    width: 80px;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 5px;
+    text-align: center;
+    background-color: blue;
+}
+
+.list-button:hover {
+    background-color: pink;
+    cursor: pointer;
+}
+
+.delete-button {
+    right: 20px;
+}
+
+.checked-button {
+    right: 150px;
+}
+
+ul {
+    list-style: none;
+}

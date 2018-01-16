@@ -1,0 +1,62 @@
+.red {
+    background: red;
+    height: 100px;
+    width: 100%;
+    float: left;
+}
+
+.lightblue {
+    background: lightblue;
+    height: 100px;
+    width: 100%;
+    float: left;
+}
+
+.green {
+    background: green;
+    height: 100px;
+    width: 100%;
+    float: left;
+}
+
+.darkblue {
+    background: darkblue;
+    height: 100px;
+    width: 100%;
+    float: left;
+}
+
+@media screen and (min-width: 600px) {
+    .darkblue {
+        width: 50%;
+        height: 200px;
+    }
+    .lightblue {
+        width: 50%;
+    }
+    .green {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .darkblue {
+        float: right;
+        width: 25%;
+    }
+    .lightblue {
+        float: right;
+        width: 50%;
+    }
+    .green {
+        float: right;
+        width: 50%;
+    }
+    .red {
+        float: left;
+        width: 25%;
+        position: relative;
+        bottom: 100px;
+        height: 200px;
+    }
+}

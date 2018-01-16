@@ -4,42 +4,48 @@
     width: 50%;
     float: left;
 }
+
 .lightblue {
     background: lightblue;
     height: 90px;
     width: 50%;
     float: left;
 }
+
 .green {
     background: green;
     height: 90px;
     width: 33.33%;
     float: left;
 }
+
 .red {
     background: red;
     height: 90px;
     width: 33.33%;
     float: left;
 }
+
 .orange {
     background: orange;
     height: 90px;
     width: 33.33%;
     float: left;
 }
+
 .main {
     width: 70%;
-    margin-left: 15%;   
+    margin-left: 15%;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 700px) {
     .main {
         width: 100%;
         margin-left: 0%;
-    }   
+    }
 }
-@media screen and (max-width: 550px){
+
+@media screen and (max-width: 550px) {
     .main {
         width: 100%;
         margin-left: 0%;
@@ -59,9 +65,9 @@
     .orange {
         width: 100%;
     }
-
 }
-@media screen and (max-width: 350px){
+
+@media screen and (max-width: 350px) {
     .main {
         width: 100%;
         margin-left: 0%;
@@ -81,5 +87,4 @@
     .orange {
         width: 100%;
     }
-
 }

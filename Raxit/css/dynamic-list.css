@@ -1,0 +1,37 @@
+.strikeText {
+    text-decoration: line-through;
+}
+
+.taskList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.listitem-name {
+    flex-grow: 5;
+}
+
+.listitem-remove-buttons,
+.listitem-uncheck-buttons {
+    height: 25px;
+    background: red;
+    color: white;
+}
+
+.listitem-uncheck-buttons {
+    background: green;
+}
+
+.listitem {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 400px;
+    min-height: 100px;
+    background: cyan;
+    height: auto;
+    margin: 10px;
+    border: 3px solid red;
+}
