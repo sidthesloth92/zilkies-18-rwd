@@ -10,10 +10,10 @@
 <body>
     <label for="task">Enter the task : </label>
     <input id="task" type="text" placeholder="eg: eat lunch"><br/><br/>
-    <button onclick="myFunction()">Enter</button>
-    <button onclick="loadData()">Load data</button>
+    <button id="enterDataButton">Enter</button>
+    <button id="loadDataButton">Load data</button>
     <p class="error-message"></p>
-    <ul class="jsonDataList list" onclick="list(event)">
+    <ul class="taskList">
     </ul>
     <script src="../JS/dynamic-list.js"></script>
 </body>

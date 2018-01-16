@@ -1,31 +1,37 @@
-.uncheck {
+.strikeText {
     text-decoration: line-through;
 }
 
-.list {
+.taskList {
     list-style: none;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
-.remove-buttons-style,
-.uncheck-buttons-style {
-    position: relative;
-    float: right;
+.listitem-name {
+    flex-grow: 5;
+}
+
+.listitem-remove-buttons,
+.listitem-uncheck-buttons {
+    height: 25px;
     background: red;
     color: white;
 }
 
-.uncheck-buttons-style {
+.listitem-uncheck-buttons {
     background: green;
 }
 
-.div-styling {
-    -webkit-flex-direction: row;
+.listitem {
+    display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    width: 250px;
-    height: 150px;
-    margin: 20px;
-    float: left;
+    width: 400px;
+    min-height: 100px;
+    background: cyan;
+    height: auto;
+    margin: 10px;
     border: 3px solid red;
 }
