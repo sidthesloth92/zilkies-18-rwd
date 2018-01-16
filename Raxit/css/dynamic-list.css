@@ -1,0 +1,31 @@
+.uncheck {
+    text-decoration: line-through;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remove-buttons-style,
+.uncheck-buttons-style {
+    position: relative;
+    float: right;
+    background: red;
+    color: white;
+}
+
+.uncheck-buttons-style {
+    background: green;
+}
+
+.div-styling {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
+    float: left;
+    border: 3px solid red;
+}

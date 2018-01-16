@@ -1,84 +1,51 @@
-.left-right {
-    width: 30%;
-    height: 400px;
+.col-sm-12 {
+    width: 100%;
     float: left;
+    height: 200px;
 }
 
-.left-section {
-    background: red;
-}
-
-.right-section {
-    position: relative;
-    top: -200px;
+.one {
     background: blue;
 }
 
-.middle-up-down {
-    float: left;
-    height: 200px;
-    width: 40%;
-}
-
-.middle-section-up {
+.two {
     background: lightblue;
 }
 
-.middle-section-down {
+.three {
     background: green;
 }
 
-@media screen and (max-width: 700px) {
-    .container {
-        position: relative;
-    }
+.four {
+    background: red;
+}
 
-    .left-right,
-    .middle-up-down {
+@media screen and (min-width: 400px) {
+    .one {
         height: 400px;
-        position: absolute;
-    }
-
-    .middle-up-down {
-        height: 200px;
-        width: 50%;
-        right: 0px;
-    }
-
-    .middle-section-down {
-        top: 200px;
-    }
-
-    .right-section {
-        top: 0px;
-        left: 0px;
         width: 50%;
     }
 
-    .left-section {
-        height: 200px;
-        top: 400px;
-        width: 100%;
+    .two,
+    .three {
+        width: 50%;
     }
 }
 
-@media screen and (max-width: 400px) {
-    .mobile-width {
-        position: absolute;
-        height: 200px;
-        width: 100%;
-        clear: left;
+@media screen and (min-width: 700px) {
+    .four {
+        width: 25%;
+        height: 400px;
+        float: none;
     }
 
-    .middle-section-up {
-        top: 200px;
+    .two,
+    .three {
+        float: right;
     }
 
-    .middle-section-down {
-        top: 400px;
-    }
-
-    .left-section {
-        top: 600px;
+    .one {
+        width: 25%;
+        float: right;
     }
 }
