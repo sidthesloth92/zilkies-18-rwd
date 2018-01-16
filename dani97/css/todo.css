@@ -7,7 +7,7 @@
 
 .task {
     position: relative;
-    width: 22%;
+    width: 45%;
     background: skyblue;
     margin: 2px;
     border-radius: 2%;
@@ -28,7 +28,7 @@
     margin: 1px;
     display: block;
     border: 1px solid black;
-    width: 50%;
+    width: 20%;
 }
 
 .strike {
