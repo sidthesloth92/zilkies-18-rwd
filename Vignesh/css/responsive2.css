@@ -1,70 +1,54 @@
-section {
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.top-left-div {
+.div-one {
     background-color: blue;
-    width: 50%;
 }
 
-.top-right-div {
+.div-two {
     background-color: cyan;
-    width: 50%;
 }
 
-.bottom-left-div {
+.div-three {
     background-color: green;
-    width: 35%;
 }
 
-.bottom-div {
+.div-four {
     background-color: red;
-    width: 30%;
 }
 
-.bottom-right-div {
+.div-five {
     background-color: orange;
-    width: 35%;
 }
 
-.left-float {
+.col-sm-12 {
     float: left;
-    height: 200px;
+    height: 100px;
+    width: 100%;
 }
 
-@media screen and (max-width: 900px) {
-    section {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    section {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .top-left-div,
-    .bottom-div,
-    .bottom-right-div {
-        width: 100%;
-    }
-
-    .top-right-div,
-    .bottom-left-div {
+@media screen and (min-width: 400px) {
+    .div-two,
+    .div-three {
         width: 50%;
     }
 }
 
-@media screen and (max-width: 400px) {
-    section {
-        padding-left: 0px;
-        padding-right: 0px;
+@media screen and (min-width: 600px) {
+    .div-one {
+        width: 50%;
     }
 
-    .left-float {
-        width: 100%;
+    .div-three,
+    .div-five {
+        width: 35%;
+    }
+
+    .div-four {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
