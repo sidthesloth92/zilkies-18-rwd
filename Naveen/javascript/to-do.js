@@ -56,11 +56,13 @@ function retrieveList() {
     request.open('GET','https://jsonplaceholder.typicode.com/posts',true);
     request.send();
 }
+
 window.onload=function() {
     if(window.confirm('Do you want to import list items from https://jsonplaceholder.typicode.com/posts ?')) {
         retrieveList();
     }
 };
+
 function createListItem(id,desc) {
     this.id = id;
     this.desc = desc;
@@ -93,6 +95,7 @@ function createList (work,id,status=false) {
     newList.appendChild(deleteButton);
     return newList;
 }
+
 function addList(n,json=null)
 {
     var element;
@@ -114,7 +117,7 @@ function addList(n,json=null)
             fragment=document.createDocumentFragment(); 
             newList=createList(work,id);
             fragment.appendChild(newList);
-            element.appendChild(fragment);
+            element.insertBefore(fragment, element.childNodes[0]);
        
         }
 
@@ -135,7 +138,7 @@ function addList(n,json=null)
             newList=createList(work,id,status);
             fragment.appendChild(newList);
         }
-        element.appendChild(fragment);
+        element.insertBefore(fragment, element.childNodes[0]);
     
     }
 }

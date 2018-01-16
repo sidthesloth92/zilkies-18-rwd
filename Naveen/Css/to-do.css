@@ -28,7 +28,7 @@ li {
 }
 
 .list-text {
-    flex-grow: 5;
+    flex-grow: 1;
     min-height: 50px;
     max-width: 400px;
     word-wrap: break-word;
@@ -36,7 +36,6 @@ li {
 }
 
 .list-button {
-    flex-grow: 2;
     font-size: 20px;
     width: 80px;
     height: 30px;
