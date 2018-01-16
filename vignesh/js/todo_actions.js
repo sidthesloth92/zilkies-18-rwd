@@ -32,7 +32,7 @@ function addTask() {
         taskList[id] = taskItem;
         insertUIElement(id, taskItem);
         fragment.appendChild(li);
-        list.appendChild(fragment);
+        list.insertBefore(fragment, list.childNodes[0]);
         textBox[0].value = '';
         textBox[0].classList.remove('invalid');
     }
