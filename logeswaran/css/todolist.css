@@ -1,0 +1,38 @@
+.input-container {
+    text-align: center;
+    font-size: 22px;
+    margin: 0 auto;
+    width: 80%;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+}
+
+li {
+    display: inline-flex;
+    margin: 10px 0;
+}
+
+.task-content {
+    flex-grow: 1;
+    border: 2px solid cornflowerblue;
+    font-size: 26px;
+}
+
+li > button {
+    flex-basis: 90px;
+    font-size: 16px;
+}
+
+.strike-through {
+    text-decoration: line-through;
+}

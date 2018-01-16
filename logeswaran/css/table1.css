@@ -1,0 +1,17 @@
+table {
+    border: 2px solid green;
+    border-collapse: collapse;
+}
+
+th {
+    border: 2px solid green;
+}
+
+td {
+    border: 2px solid green;
+}
+
+td:nth-child(1),
+th {
+    background-color: orange;
+}
