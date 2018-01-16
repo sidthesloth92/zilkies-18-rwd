@@ -1,147 +1,178 @@
-
-
- allItems=(function() {
-    var structure='{"listItems":[],"noOfItemsChecked":0}';
-    var jsonStructure=JSON.parse(structure);
-    //console.log(jsonStructure.listItems.length);
-    var idMatch=undefined;
+var window = window;
+var document = window.document;
+var localStorage = window.localStorage;
+var allItems = ( function() {
+    
+    var jsonStructure = {'listItems':[],'noOfItemsChecked':0};
+    
+    var idMatch = undefined;
+    
     function findId(obj) {
-        return obj.id==idMatch;
+        return obj.id == idMatch;
     }
     return {
-        addItem :function(newItem) {
+        addItem : function(newItem) {
             jsonStructure.listItems.push(newItem);
         },
-        retriveiD :function() {
-            return jsonStructure.listItems.length==0?1:jsonStructure.listItems[jsonStructure.listItems.length-1].id+1;
+        //idname
+        retriveiD : function() {
+            var length=jsonStructure.listItems.length;
+            return length == 0 ? 1 : jsonStructure.listItems[length-1].id + 1;
         },
-        updateStatus :function(id) {
+        
+        updateStatus : function(id) {
             idMatch=id;
-          //  console.log()
-            jsonStructure.listItems[jsonStructure.listItems.findIndex(findId)].status=jsonStructure.listItems[jsonStructure.listItems.findIndex(findId)].status===true?false:true;
-            if(jsonStructure.listItems[jsonStructure.listItems.findIndex(findId)].status) {
+            var index=jsonStructure.listItems.findIndex(findId);
+            jsonStructure.listItems[index].status = (jsonStructure.listItems[index].status==true)?false:true;
+            if(jsonStructure.listItems[index].status) {
                 jsonStructure.noOfItemsChecked++;
-                console.log(jsonStructure.noOfItemsChecked);
             }
             else {
                 jsonStructure.noOfItemsChecked--;
-                console.log(jsonStructure.noOfItemsChecked);
             }
         },
-        deleteItem :function(id) {
-            if(jsonStructure.listItems[jsonStructure.listItems.findIndex(findId)].status) {
+        deleteItem : function(id) {
+            idMatch = id;
+            var index = jsonStructure.listItems.findIndex(findId);
+            if(jsonStructure.listItems[index].status) {
                 jsonStructure.noOfItemsChecked--;
             }
-            jsonStructure.listItems.splice(jsonStructure.listItems.findIndex(findId),1);
-          //    console.log(jsonStructure.listItems.length);
+            jsonStructure.listItems.splice(index,1);
+        },
+        store : function() {
+            localStorage.setItem('allItems',JSON.stringify(jsonStructure));
         }
     };
 })();
 
-window.onload=function() {
-
-    //console.log(allItems.retriveiD());
-   if(window.confirm("Do you want to import list items from https://jsonplaceholder.typicode.com/posts ?")) {
-    var request=new XMLHttpRequest();
-    request.onreadystatechange=function() {
-        if(request.readyState==4&&request.status==200) {
-           var json=JSON.parse(request.responseText);
-           addList(10,json);   
+function retrieveList() {
+    var request = new window.XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if(request.readyState == 4&&request.status == 200) {
+            var json=JSON.parse(request.responseText);
+            addList(json.length,json);   
         }
-    }
-    request.open("GET","https://jsonplaceholder.typicode.com/posts",true);
+    };
+    request.open('GET','https://jsonplaceholder.typicode.com/posts',true);
     request.send();
-    console.log(request);
-    }
 }
+
+window.onload=function() {
+    if(window.confirm('Do you want to import list items from https://jsonplaceholder.typicode.com/posts ?')) {
+        retrieveList();
+    }
+};
+
 function createListItem(id,desc) {
-    this.id=id;
-    this.desc=desc;
-    this.status=false;
+    this.id = id;
+    this.desc = desc;
+    this.status = false;
     
 }
 
-document.getElementById('addlist').addEventListener('click',addList);
+document.getElementById('add-list').addEventListener('click',addList);
 
-function createList (work,id) {
-    var newList=document.createElement('li');
-    var listText=document.createElement('div');
-    listText.classList.add('listText');
-    var deleteButton=document.createElement('span');
+function createList (work,id,status=false) {
+    var newList = document.createElement('li');
+    var listText = document.createElement('div');
+    listText.classList.add('list-text'); 
+    if(status) {
+        listText.classList.add('line-through');
+    }
+    var deleteButton = document.createElement('span');
     deleteButton.classList.add('delete-button');
-    deleteButton.classList.add('listButton');
+    deleteButton.classList.add('list-button');
     var checkedButton=document.createElement('span');
     checkedButton.classList.add('checked-button');
-    checkedButton.classList.add('listButton');
+    checkedButton.classList.add('list-button');
     listText.textContent=work;
-    newList.setAttribute("id",id);
-    checkedButton.textContent="check";
-    deleteButton.textContent="delete";
+    var currentId='list-item-id-'+id;
+    newList.setAttribute('id',currentId);
+    checkedButton.textContent='check';
+    deleteButton.textContent='delete';
     newList.appendChild(listText);
     newList.appendChild(checkedButton);
     newList.appendChild(deleteButton);
     return newList;
 }
+
 function addList(n,json=null)
 {
+    var element;
+    var fragment;
+    var work;
+    var newItem;
+    var id;
+    var newList;
     if(n instanceof(Object)) {
-    var textBox=document.getElementById('work');
-    var work=textBox.value;
-    if(work.search(/[a-zA-Z]/)>=0) {
-        textBox.classList.remove('error');
-        textBox.value   ="";
-    var id=allItems.retriveiD();    
-    var newItem=new createListItem(id,work);
-    allItems.addItem(newItem);
-    var element=document.getElementById("to-do");
-    var fragment=document.createDocumentFragment(); 
-    var newList=createList(work,id);
-    fragment.appendChild(newList);
-    element.appendChild(fragment);
+        var textBox=document.getElementById('work');
+        work=textBox.value;
+        if(work.search(/[a-zA-Z]/)>=0) {
+            textBox.classList.remove('error');
+            textBox.value   ='';
+            id=allItems.retriveiD();    
+            newItem=new createListItem(id,work);
+            allItems.addItem(newItem);
+            element=document.getElementById('to-do');
+            fragment=document.createDocumentFragment(); 
+            newList=createList(work,id);
+            fragment.appendChild(newList);
+            element.insertBefore(fragment, element.childNodes[0]);
        
-    }
+        }
 
+        else {
+            textBox.classList.add('error');
+        }  
+    }
     else {
-      //  console.log("Invalid input");
-        textBox.classList.add('error');
-    }  
-}
-else {
-    for(var i=0;i<19;i++) {
-        var element=document.getElementById("to-do");
-        var fragment=document.createDocumentFragment();
-        for(var j=0;j<10;j++) {
-            var id=allItems.retriveiD();
-            allItems.addItem(json[(i*5)+j]);
-           console.log(json[(i*5)+j].title);
-           var newList=new createList(json[(i*5)+j].title,id);
+        element=document.getElementById('to-do');
+        fragment=document.createDocumentFragment();
+        for(var i=0;i<n;i++) {
+        
+            id=allItems.retriveiD();
+            work=(json[i] == undefined)?json.listItems[i].desc:json[i].title;
+            var status=(json[i] == undefined)?json.listItems[i].status:false;
+            newItem=new createListItem(id,work,status);
+            allItems.addItem(newItem);
+            newList=createList(work,id,status);
             fragment.appendChild(newList);
         }
-        element.appendChild(fragment);
+        element.insertBefore(fragment, element.childNodes[0]);
+    
     }
-}
 }
 
 document.getElementById('to-do').addEventListener('click',function(event)
 {   
     var target=event.srcElement;
     var targetName=target.className;
-    if(targetName.includes("checked-button"))
+    var getId=target.parentElement.id.substr(13,3);
+    if(targetName.includes('checked-button'))
     {
-        console.log(target.parentElement.id);
-        allItems.updateStatus(target.parentElement.id);
-    target.innerHTML=="uncheck"?target.innerHTML="check":target.innerHTML="uncheck";
-    target.parentElement.classList.toggle("line-through");
-    target.parentElement.firstChild.classList.toggle("line-through");
+        
+        allItems.updateStatus(getId);
+        target.innerHTML=='uncheck'?target.innerHTML='check':target.innerHTML='uncheck';
+        target.parentElement.firstChild.classList.toggle('line-through');
     }
-    else if(targetName.includes("delete-button"))
+    else if(targetName.includes('delete-button'))
     {
-        var confirm=window.confirm("Are you sure you want to Delete this item");
+        var confirm=window.confirm('Are you sure you want to Delete this item');
         if(confirm)
         {
-            allItems.deleteItem(target.parentElement.id);
-        var unorderedList=target.parentElement.parentElement;
-        unorderedList.removeChild(target.parentElement);
+            allItems.deleteItem(getId);
+            var unorderedList=target.parentElement.parentElement;
+            unorderedList.removeChild(target.parentElement);
         }
     }
+});
+
+document.getElementById('retrieve-List').addEventListener('click',function() {
+    var json=JSON.parse(localStorage.getItem('allItems'));
+    var n=json.listItems.length;
+    addList(n,json); 
+});
+
+document.getElementById('save-List').addEventListener('click',function() {
+    allItems.store();
 });
