@@ -1,0 +1,69 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.border {
+    border: 1px solid black;
+    height: 90px;
+    float: left;
+    box-sizing: border-box;
+}
+
+.div-1 {
+    width: 100%;
+    background-color: dodgerblue;
+}
+
+.div-2 {
+    width: 100%;
+    background-color: blue;
+}
+
+.div-3 {
+    width: 100%;
+    background-color: green;
+}
+
+.div-4 {
+    width: 100%;
+    background-color: pink;
+}
+
+@media screen and (min-width: 400px) {
+    .div-1 {
+        width: 50%;
+        height: 180px;
+    }
+
+    .div-2 {
+        width: 50%;
+    }
+
+    .div-3 {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .div-1 {
+        width: 30%;
+        height: 180px;
+    }
+
+    .div-2 {
+        width: 40%;
+    }
+
+    .div-3 {
+        width: 40%;
+    }
+
+    .div-4 {
+        width: 30%;
+        height: 180px;
+        position: relative;
+        bottom: 100px;
+    }
+}
+

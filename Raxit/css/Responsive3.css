@@ -1,0 +1,84 @@
+.left-right {
+    width: 30%;
+    height: 400px;
+    float: left;
+}
+
+.left-section {
+    background: red;
+}
+
+.right-section {
+    position: relative;
+    top: -200px;
+    background: blue;
+}
+
+.middle-up-down {
+    float: left;
+    height: 200px;
+    width: 40%;
+}
+
+.middle-section-up {
+    background: lightblue;
+}
+
+.middle-section-down {
+    background: green;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        position: relative;
+    }
+
+    .left-right,
+    .middle-up-down {
+        height: 400px;
+        position: absolute;
+    }
+
+    .middle-up-down {
+        height: 200px;
+        width: 50%;
+        right: 0px;
+    }
+
+    .middle-section-down {
+        top: 200px;
+    }
+
+    .right-section {
+        top: 0px;
+        left: 0px;
+        width: 50%;
+    }
+
+    .left-section {
+        height: 200px;
+        top: 400px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mobile-width {
+        position: absolute;
+        height: 200px;
+        width: 100%;
+        clear: left;
+    }
+
+    .middle-section-up {
+        top: 200px;
+    }
+
+    .middle-section-down {
+        top: 400px;
+    }
+
+    .left-section {
+        top: 600px;
+    }
+}
