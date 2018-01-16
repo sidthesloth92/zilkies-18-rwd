@@ -1,3 +1,36 @@
+var TaskArray = [];
+var fragment;
+function Tasks (taskName) {
+  Tasks.id += 1;
+  var _taskName = taskName;
+  //html element creation 
+  var element = document.createElement("div");
+  var close = document.createElement("div");
+  var check = document.createElement("div");
+ 
+  element.textContent = taskName;
+  element.classList.add("task");
+  check.classList.add("task-finish");
+  check.textContent = 'C';
+  close.textContent = 'X';
+  close.classList.add("task-close");
+  element.appendChild(close);
+  element.appendChild(check);
+  fragment.appendChild(element);
+  getId = function () {
+      return Posts.id;
+  }
+  
+
+  getContent = function () {
+      return this._taskName;
+  }
+
+  setContent = function (taskName) {
+      this._taskName = taskName;
+  }
+}
+
 function insertTask() {
   var task = document.getElementsByClassName("my-task")[0].value;
   if(task.length<=0||task.trim().length<=0){
@@ -6,27 +39,16 @@ function insertTask() {
     setTimeout(function () {alert("pls insert a valid task")},200);
     setTimeout(function () {document.getElementsByClassName("my-task")[0].classList.remove("validation-alert")},500);
     return;
+  } 
+  fragment = document.createDocumentFragment();
+  var newTask = new Tasks(task);
+  TaskArray.push(newTask);
+  if(confirm("do you want to add more tasks")){
+    insertTask();
+  }else{
+    document.getElementsByClassName("tasks")[0].appendChild(fragment);
   }
-  var fragment = document.createDocumentFragment();
-  var element = document.createElement("div");
-  var close = document.createElement("div");
-  var check = document.createElement("div");
- 
-  element.textContent = task;
-  element.classList.add("task");
-  //element.setAttribute("onclick","deleteTask(event)");
-  check.classList.add("task-finish");
-  check.textContent = 'C';
-  //check.setAttribute("onclick","completeTask(event)");
-  close.textContent = 'X';
-  close.classList.add("task-close");
-  //close.setAttribute("onclick","deleteTask(event)");
-  element.appendChild(close);
-  element.appendChild(check);
-  var list = document.getElementsByClassName("tasks")[0];
-  console.log(list);
-  fragment.appendChild(element);
-  list.appendChild(fragment);
+
 }
 
 function performTask(event) {
