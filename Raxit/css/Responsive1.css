@@ -1,0 +1,42 @@
+.col-sm-12 {
+    height: 200px;
+    float: left;
+    width: 100%;
+}
+
+.one {
+    background: blue;
+}
+
+.two {
+    background: lightblue;
+}
+
+.three {
+    background: green;
+}
+
+@media screen and (min-width: 400px) {
+    .one {
+        width: 20%;
+    }
+
+    .two {
+        width: 80%;
+    }
+
+    .three {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .one,
+    .three {
+        width: 20%;
+    }
+
+    .two {
+        width: 60%;
+    }
+}

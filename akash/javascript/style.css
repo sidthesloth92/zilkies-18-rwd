@@ -1,0 +1,66 @@
+.container {
+    margin-left: 70px;
+}
+
+.todo-list {
+    font-size: 21px;
+    position: relative;
+    right: 100px;
+    top: 20px;
+}
+
+button {
+    backface-visibility: hidden;
+}
+
+a {
+    padding-left: 10%;
+}
+
+li {
+    padding: 0px 0px 15px 15px;
+    width: 340px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.inline {
+    display: inline;
+}
+
+.container-div {
+    position: relative;
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 125;
+    border: 1px solid orange;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    top: 3px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.todo-error {
+    border: 1px solid red;
+}
+
+a,
+i {
+    float: right;
+}
+
+td,
+th {
+    padding: 7px;
+}
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,56 @@
+.container {
+    font-size: 0px;
+}
+
+.col {
+    height: 100px;
+    background: green;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.col-1 {
+    background: blue;
+}
+
+.col-2 {
+    background: skyblue;
+}
+
+.col-3 {
+    background: darkgreen;
+}
+
+@media screen and (min-width: 0px) {
+    .col-sm-12 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .col-me-3 {
+        width: 20%;
+    }
+
+    .col-me-10 {
+        width: 80%;
+    }
+
+    .col-me-12 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .col-lg-2 {
+        width: 20%;
+    }
+
+    .col-lg-6 {
+        width: 50%;
+    }
+
+    .col-lg-3 {
+        width: 30%;
+    }
+}

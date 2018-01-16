@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dynamic List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/dynamic-list.css">
+</head>
+<body>
+    <label for="task">Enter the task : </label>
+    <input id="task" type="text" placeholder="eg: eat lunch"><br/><br/>
+    <label for="description">Enter some description : </label>
+    <input id="description" type="text" placeholder="eg: Time: 1:00pm"><br/><br/>
+    <button onclick="myFunction()">Enter</button>
+    <p class="error-message"></p>
+    <ul class="list" onclick="list(event)"></ul>
+    </ul>
+    <h2>Fetching user data from external JSON URL</h2>
+    <label for="totalLines">Enter the number of users to fetch : </label>
+    <input id="totalLines" type="number" placeholder="Range : 1 - 10"><br/><br/>
+    <button onclick="loadData()">Load data</button>
+    <ul class="jsonDataList list" onclick="userList(event)"></ul>
+    </ul>
+    <script src="../JS/JSONData.js"></script>
+    <script src="../JS/dynamic-list.js"></script>
+</body>
+</html>
