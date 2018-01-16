@@ -76,9 +76,6 @@ function createList (work,id,status=false) {
     var newList = document.createElement('li');
     var listText = document.createElement('div');
     listText.classList.add('list-text'); 
-    if(status) {
-        listText.classList.add('line-through');
-    }
     var deleteButton = document.createElement('span');
     deleteButton.classList.add('delete-button');
     deleteButton.classList.add('list-button');
@@ -86,9 +83,20 @@ function createList (work,id,status=false) {
     checkedButton.classList.add('checked-button');
     checkedButton.classList.add('list-button');
     listText.textContent=work;
-    var currentId='list-item-id-'+id;
-    newList.setAttribute('id',currentId);
-    checkedButton.textContent='check';
+    var currentListId='list-item-id-'+id;
+    var currentCheckId='list-item-check-id-'+id;
+    var currentDeleteId='list-item-delet-id-'+id;
+    newList.setAttribute('id',currentListId);
+    
+    if(status) {
+        listText.classList.add('line-through');
+        checkedButton.textContent='uncheck';
+    }
+    else {
+        checkedButton.textContent='check';
+    }
+    checkedButton.setAttribute('id',currentCheckId);
+    deleteButton.setAttribute('id',currentDeleteId);
     deleteButton.textContent='delete';
     newList.appendChild(listText);
     newList.appendChild(checkedButton);
@@ -147,13 +155,14 @@ document.getElementById('to-do').addEventListener('click',function(event)
 {   
     var target=event.srcElement;
     var targetName=target.className;
-    var getId=target.parentElement.id.substr(13,3);
+    var getId=target.id.substr(19,3);
+    var list = document.querySelector('#list-item-id-'+getId);
     if(targetName.includes('checked-button'))
     {
         
         allItems.updateStatus(getId);
         target.innerHTML=='uncheck'?target.innerHTML='check':target.innerHTML='uncheck';
-        target.parentElement.firstChild.classList.toggle('line-through');
+        list.firstChild.classList.toggle('line-through');
     }
     else if(targetName.includes('delete-button'))
     {
@@ -161,8 +170,7 @@ document.getElementById('to-do').addEventListener('click',function(event)
         if(confirm)
         {
             allItems.deleteItem(getId);
-            var unorderedList=target.parentElement.parentElement;
-            unorderedList.removeChild(target.parentElement);
+            list.remove();
         }
     }
 });
