@@ -1,0 +1,39 @@
+* {
+    border: 1px solid red;
+    text-align: center;
+}
+
+.body {
+    height: 400px;
+}
+
+.nav {
+    height: 50px;
+    background-color: limegreen;
+}
+
+.menu-item {
+    display: inline-block;
+    background-color: green;
+    width: 10%;
+    float: left;
+}
+
+.sub-menu {
+    display: none;
+    background-color: green;
+}
+
+.menu-item:hover > .sub-menu {
+    display: block;
+}
+
+.menu-item:hover {
+    background-color: cyan;
+}
+
+.sub-menu-item:hover {
+    display: inline-block;
+    background-color: yellow;
+    width: 100%;
+}

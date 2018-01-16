@@ -1,0 +1,39 @@
+.container {
+    border: 1px solid red;
+    height: 400px;
+}
+
+.container,
+.header,
+.nav,
+.item-list,
+.item,
+.item_close-button {
+    border: 1px solid red;
+    margin: 5px;
+    text-align: center;
+}
+
+.header,
+.nav {
+    height: 50px;
+}
+
+.item-list {
+    height: 400 px;
+}
+
+.item {
+    position: relative;
+    width: 300px;
+    height: 100px;
+}
+
+.item_close-button {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    left: 270px;
+}
+

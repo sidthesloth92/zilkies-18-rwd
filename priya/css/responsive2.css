@@ -1,0 +1,54 @@
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5 {
+    height: 150px;
+    float: left;
+}
+
+.col-1 {
+    width: 50%;
+    background: blue;
+}
+
+.col-2 {
+    width: 50%;
+    background: cyan;
+}
+
+.col-3 {
+    width: 33.3%;
+    background: green;
+}
+
+.col-4 {
+    width: 33.3%;
+    background: red;
+}
+
+.col-5 {
+    width: 33.3%;
+    background: orange;
+}
+
+@media screen and (max-width: 700px) {
+    .col-1,
+    .col-4,
+    .col-5 {
+        width: 100%;
+        clear: left;
+    }
+
+    .col-2,
+    .col-3 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .set-width {
+        width: 100%;
+        clear: left;
+    }
+}

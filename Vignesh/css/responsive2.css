@@ -1,0 +1,54 @@
+.div-one {
+    background-color: blue;
+}
+
+.div-two {
+    background-color: cyan;
+}
+
+.div-three {
+    background-color: green;
+}
+
+.div-four {
+    background-color: red;
+}
+
+.div-five {
+    background-color: orange;
+}
+
+.col-sm-12 {
+    float: left;
+    height: 100px;
+    width: 100%;
+}
+
+@media screen and (min-width: 400px) {
+    .div-two,
+    .div-three {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .div-one {
+        width: 50%;
+    }
+
+    .div-three,
+    .div-five {
+        width: 35%;
+    }
+
+    .div-four {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
