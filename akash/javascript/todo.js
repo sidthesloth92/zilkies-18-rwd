@@ -134,14 +134,15 @@ function eventListener(event) {
 
     var tagName = (event.target.tagName);
 
-    var parentId = event.target.parentNode.dataset.id;
+    var closeId = event.target.dataset.close;
 
+   
 
     if (tagName == "I") {
         var confirmDelete = confirm("Are you sure to delete Item? ");
         event.preventDefault();
         if (confirmDelete == true) {
-            document.querySelector("div[data-id='" + parentId + "']").remove();
+            document.querySelector("div[data-id='" + closeId + "']").remove();
 
         }
     }
