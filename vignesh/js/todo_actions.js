@@ -40,20 +40,22 @@ function addTask() {
 // to remove a task from the list using the parent's event listener
 function removeItem(event) {
     element = event.srcElement;
-    var getId = element.id.split('-');
+    var getId = element.dataset.id.split('-');
+    var taskText = document.getElementsByClassName('task' + getId[1])[0]
     if(element.classList.contains('remove-item')){
         if(window.confirm('Are you sure to delete this item?')){
-            element.parentNode.parentNode.removeChild(element.parentNode);
+            document.getElementsByClassName('list-item'+getId[1])[0].remove();
+            //element.parentNode.parentNode.removeChild(element.parentNode);
             delete taskList[getId[1]];
         }
     }
     else if(element.classList.contains('check-item')){
-        if(element.parentNode.firstChild.classList.contains('strike')){
-            element.parentNode.firstChild.classList.toggle('strike');
+        if(taskText.classList.contains('strike')){
+            taskText.classList.toggle('strike');
             element.innerHTML = 'check';
         }
         else {
-            element.parentNode.firstChild.classList.toggle('strike');
+            taskText.classList.toggle('strike');
             element.innerHTML = 'uncheck';
         }
     }
@@ -99,10 +101,13 @@ function insertUIElement(id, taskItem) {
     button.textContent = 'Delete';
     buttonCheck.textContent = 'Check';
     span.innerHTML = taskItem.taskName;
+    span.setAttribute('class', 'task' + id);
     li.setAttribute('class', 'list-item');
+    li.setAttribute('class', 'list-item' + id);
     button.setAttribute('class', 'remove-item');
-    button.setAttribute('id', 'remove'+ id);
+    button.setAttribute('data-id', 'remove-' + id);
     buttonCheck.setAttribute('class', 'check-item');
+    buttonCheck.setAttribute('data-id', 'check-' + id);
     li.appendChild(span);
     li.appendChild(button);
     li.appendChild(buttonCheck);
