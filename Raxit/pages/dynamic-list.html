@@ -10,19 +10,11 @@
 <body>
     <label for="task">Enter the task : </label>
     <input id="task" type="text" placeholder="eg: eat lunch"><br/><br/>
-    <label for="description">Enter some description : </label>
-    <input id="description" type="text" placeholder="eg: Time: 1:00pm"><br/><br/>
     <button onclick="myFunction()">Enter</button>
-    <p class="error-message"></p>
-    <ul class="list" onclick="list(event)"></ul>
-    </ul>
-    <h2>Fetching user data from external JSON URL</h2>
-    <label for="totalLines">Enter the number of users to fetch : </label>
-    <input id="totalLines" type="number" placeholder="Range : 1 - 10"><br/><br/>
     <button onclick="loadData()">Load data</button>
-    <ul class="jsonDataList list" onclick="userList(event)"></ul>
+    <p class="error-message"></p>
+    <ul class="jsonDataList list" onclick="list(event)">
     </ul>
-    <script src="../JS/JSONData.js"></script>
     <script src="../JS/dynamic-list.js"></script>
 </body>
 </html>
