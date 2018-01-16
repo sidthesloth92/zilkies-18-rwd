@@ -1,5 +1,5 @@
 .container {
-    font-size: 1px;
+    font-size: 0px;
 }
 
 .col {
@@ -21,36 +21,36 @@
     background: darkgreen;
 }
 
-@media screen and (max-width: 2000px) {
-    .col-1 {
-        width: 20%;
-    }
-
-    .col-2 {
-        width: 50%;
-    }
-
-    .col-3 {
-        width: 30%;
+@media screen and (min-width: 0px) {
+    .col-sm-12 {
+        width: 100%;
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .col-1 {
+@media screen and (min-width: 800px) {
+    .col-me-3 {
         width: 20%;
     }
 
-    .col-2 {
+    .col-me-10 {
         width: 80%;
     }
 
-    .col-3 {
+    .col-me-12 {
         width: 100%;
     }
 }
 
-@media screen and (max-width: 500px) {
-    .col {
-        width: 100%;
+@media screen and (min-width: 1200px) {
+    .col-lg-2 {
+        width: 20%;
+    }
+
+    .col-lg-6 {
+        width: 50%;
+    }
+
+    .col-lg-3 {
+        width: 30%;
     }
 }
