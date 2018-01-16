@@ -1,3 +1,6 @@
+var window = window;
+var document = window.document;
+var element = window.element;
 var id, li, fragment;
 var taskList = {};
 // getting a unique ID for a new task
@@ -19,7 +22,7 @@ function addTask() {
     var list = document.getElementsByClassName('list')[0];
     var input = textBox[0].value.replace(/ /g, '');
     if(input.length == 0){
-        alert('Enter proper values');
+        window.alert('Enter proper values');
         textBox[0].classList.add('invalid');
         textBox[0].value = '';
     }
@@ -39,7 +42,7 @@ function removeItem(event) {
     element = event.srcElement;
     var getId = element.id.split('-');
     if(element.classList.contains('remove-item')){
-        if(confirm('Are you sure to delete this item?')){
+        if(window.confirm('Are you sure to delete this item?')){
             element.parentNode.parentNode.removeChild(element.parentNode);
             delete taskList[getId[1]];
         }
@@ -58,8 +61,8 @@ function removeItem(event) {
 // to load data from external website
 function loadData() {
     id = 0;
-    if(confirm('Do you want to insert tasks from the external website?')){
-        var request = new XMLHttpRequest();
+    if(window.confirm('Do you want to insert tasks from the external website?')){
+        var request = new window.XMLHttpRequest();
         request.onreadystatechange = function() {
             if(request.readyState == 4 && request.status == 200) {
                 var json = JSON.parse(request.responseText);
@@ -106,3 +109,11 @@ function insertUIElement(id, taskItem) {
 }
 
 window.onload = loadData();
+
+document.getElementbyId('add').addEventlistener('click',addTask);
+
+document.getElementbyId('list').addEventlistener('click',function remove1Item(event) {
+    removeItem(event);
+});
+
+document.getElementbyId('load').addEventlistener('click',loadData);
