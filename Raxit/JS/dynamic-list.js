@@ -14,7 +14,7 @@ function Manager(name, id) {
     this.id = id;
 }
 
-window.onload = function() {
+function loadData() {
     if(confirm("Do you want to fetch the JSON data from external URL?") == true) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
