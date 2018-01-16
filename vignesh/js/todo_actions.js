@@ -1,15 +1,5 @@
 var id, li, fragment;
 var taskList = {};
-// use proper variable names and method names //
-// use xmlhttp request //
-// centering and titles //
-// understandable buttons //
-// display list items in rows //
-// spacing around operators //
-// get length from website //
-// new button //
-// flex //
-
 // getting a unique ID for a new task
 var uniqueId = (function() {
     var id = 0;
