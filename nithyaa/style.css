@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+    color:blueviolet;
+}
+
+.container {
+    border: 1px solid burlywood;
+    background-color: bisque;
+}
+
+.input-field {
+    text-align: center;
+    padding-top: 80px;
+}
+
+.input-box {
+    width: 200px;
+    height: 30px;
+}
+
+.check-box {
+    width: 100px;
+    height: 20px;
+    background-color: rgb(194, 56, 194); 
+}
+li {
+    text-align: center;
+    list-style: none;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(159, 130, 238);
+    display: flex;
+}
+
+.checkfunction{
+    text-decoration: line-through;
+}
+
+.hide-button {
+    display:none;
+}
+
+.input-alert{
+    border: 1px solid red;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: row;
+}
