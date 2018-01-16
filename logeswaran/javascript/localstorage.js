@@ -17,7 +17,7 @@ function displayTasks() {
             console.log("desc = " + tasks[j].description);
             addDocumentFragment(tasks[j].id, tasks[j].description);
             i = tasks[j].id + 1;
-            if(tasks[j].status == "Checked") {
+            if (tasks[j].status == "Checked") {
                 var listItem = document.querySelector("li[data-id='" + tasks[j].id + "']");
                 listItem.childNodes[0].classList.add('strike-through');
                 listItem.childNodes[1].textContent = "Uncheck";
