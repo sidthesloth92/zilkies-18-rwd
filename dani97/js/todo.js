@@ -1,5 +1,4 @@
 var window = window;
-var XMLHTTP = window.XMLHTTP;
 var XMLHttpRequest = window.XMLHttpRequest;
 var alert = window.alert;
 var confirm = window.confirm; 
@@ -7,7 +6,7 @@ var ActiveXObject = window.ActiveXObject;
 var document = window.document;
 window.onload = function() {
     if(confirm('do you want to load tasks from web')){
-        insertTask(multiple=true);
+        insertTask(true);
     }
 };
 getId = function () {
@@ -80,7 +79,6 @@ function insertTask(multiplicity) {
 function performTask(event) {
   
     var element = event.srcElement;
-    console.log(element);
     if(element.classList.contains('task-close')){
         if(confirm('Sure you want to delete this task?')){
             element.parentNode.parentNode.removeChild(element.parentNode);
@@ -96,7 +94,6 @@ function performTask(event) {
         if(!element.parentNode.classList.contains('strike')){
             element.parentNode.classList.add('strike');
         }else {
-            console.log(element.parentNode);
             element.parentNode.classList.remove('strike');
         }
     }
