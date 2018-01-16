@@ -1,0 +1,18 @@
+.table1,
+.table-1-th,
+.table-1 td {
+    border: 2px solid green;
+}
+
+th {
+    background-color: orange;
+    border: 2px solid green;
+}
+
+.table-1-td{
+    background-color: orange;
+}
+.table-1 {
+    border: 2px solid green; 
+    border-collapse:collapse;
+}

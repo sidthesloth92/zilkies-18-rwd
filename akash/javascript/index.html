@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+    <script src="todo.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <div class="input-container">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Type here...." class="input-textbox adjust-height" size="35" name="todo" id="todo">
+                    </td>
+                    <td>
+                        <input type="button" name="Add" onclick="addToArray()" class="adjust-height" value="Add to List">
+                    </td>
+                    <td>
+                        <input type="button" name="Retrieve" onclick="retrieveList()" class="adjust-height" value="Retrieve List">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <div class="item-container">
+            <ul id="unordered-list" class="unordered-list-container" onclick="eventListener(event)">
+
+
+
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
