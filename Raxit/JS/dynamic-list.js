@@ -54,10 +54,13 @@ function insertFragment(taskObject) {
     nameText.appendChild(document.createTextNode('Name : ' + taskObject.name));
     removeButton.classList.add('listitem-remove-buttons');
     uncheckButton.classList.add('listitem-uncheck-buttons');
+    nameText.setAttribute('class', 'task-' + taskObject.id);
     nameText.classList.add('listitem-name');
     removeButton.appendChild(document.createTextNode('Delete'));
-    removeButton.setAttribute('id','remove-' + taskObject.id);
+    removeButton.setAttribute('data-id', 'remove-' + taskObject.id);
     uncheckButton.appendChild(document.createTextNode('Check'));
+    uncheckButton.setAttribute('data-id', 'check-' + taskObject.id);
+    listItem.setAttribute('class', 'listitem-' + taskObject.id);
     listItem.appendChild(nameText);
     listItem.appendChild(uncheckButton);
     listItem.appendChild(removeButton);
@@ -84,27 +87,26 @@ function addListItem() {
 
 function deleteListItem(event) {
     element = event.srcElement;
-    var getId = element.id.split('-');
-    var object = {};
-    object = listObject[getId[1]];
+    var getId = element.dataset.id.split('-');
+    var object = listObject[getId[1]];
     if(getId[0] == 'remove') {
         if(window.confirm('Do you want to delete ' + object.name + '?') == true) {
-            element.parentNode.parentNode.removeChild(element.parentNode);
+            document.querySelector('.listitem-'+getId[1]).remove();
             delete listObject[getId[1]];
         }
-    } else if(element.classList.contains('listitem-uncheck-buttons')) {
-        if(element.parentNode.firstChild.classList.contains('strikeText')){
-            element.parentNode.firstChild.classList.remove('strikeText');
+    } else if(getId[0] == 'check') {
+        if(document.querySelector('.task-' + getId[1]).classList.contains('strikeText')){
+            document.querySelector('.task-' + getId[1]).classList.remove('strikeText');
             element.innerHTML = 'Check';
         } else {
-            element.parentNode.firstChild.classList.add('strikeText');
+            document.querySelector('.task-' + getId[1]).classList.add('strikeText');
             element.innerHTML = 'Uncheck';
         }
-    } 
+    }
 }
 
 window.onload = function() {
-    loadData();
+    loadJSONData();
 };
 
 document.getElementById('enterDataButton').addEventListener('click', addListItem);
