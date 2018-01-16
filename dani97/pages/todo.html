@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sample Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/todo.css">
 </head>
 <body>
     <h1>To Do List</h1>
-    <input type="text" name="my-task" class="my-task">
-    <Button   onclick="insertTask()" class="add">Add Task </button>
+    <input type = "text" name = "my-task" class = "my-task" onfocus = "removeValidation()">
+    <button onclick = "insertTask(false)" class="add">Add Task </button>
+    <button onclick = "loadJSON()">Retrive from web</button>
     <div class="tasks" onclick="performTask(event)">
     </div>
     <script src = "../js/todo.js"></script>
