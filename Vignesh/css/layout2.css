@@ -1,0 +1,60 @@
+* {
+    text-align: center;
+    border: 1px solid black;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    background-color: grey;
+    height: 40px;
+}
+
+.nav {
+    width: 17%;
+    background-color: wheat;
+    height: 400px;
+    display: inline-block;
+    float: left;
+}
+
+.upper-content {
+    width: 27%;
+    height: 200px;
+    display: inline-block;
+}
+
+.upper-content-left {
+    background-color: darkgrey;
+}
+
+.upper-content-center {
+    background-color: red;
+}
+
+.upper-content-right {
+    background-color: powderBlue;
+}
+
+.middle-content {
+    display: inline-block;
+    background-color: DarkSeaGreen;
+    height: 100px;
+    float: left;
+    width: 82.5%;
+}
+
+.lower-content {
+    background-color: orange;
+    height: 100px;
+    display: inline-block;
+    width: 82.5%;
+}
+
+.footer {
+    background-color: lightSteelBlue;
+    height: 100px;
+}

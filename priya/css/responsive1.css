@@ -1,0 +1,41 @@
+div {
+    height: 200px;
+    float: left;
+}
+
+.col-1 {
+    background: blue;
+    width: 20%;
+}
+
+.col-2 {
+    width: 60%;
+    background: cyan;
+}
+
+.col-3 {
+    background: green;
+    width: 20%;
+}
+
+@media screen and (max-width: 700px) {
+    .col-1 {
+        width: 20%;
+    }
+
+    .col-2 {
+        width: 80%;
+    }
+
+    .col-3 {
+        width: 100%;
+        clear: left;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .set-width {
+        width: 100%;
+        clear: left;
+    }
+}

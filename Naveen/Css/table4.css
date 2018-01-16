@@ -1,0 +1,13 @@
+table {
+    width: 100px;
+    table-layout: fixed;
+    border: 1px solid black;
+}
+
+td,
+th {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid black;
+    width: 10px;
+}

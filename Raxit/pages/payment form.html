@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Payment Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .right-align {
+            text-align : right;
+        }
+
+        #button {
+            margin-left:80px;
+        }
+    </style>
+</head>
+<body>
+        <h1>Payment Form</h1>
+        <p>Required fields are followed by *</p>
+        <h2>Contact Information</h2>
+        <form>
+        <table>
+          <tr>
+            <td></td>
+            <td>
+              <fieldset>
+                <legend>Title</legend>
+                <input type="radio" id="male-gender" name = "gender" value="male">
+                <label for="male-gender">Male</label><br/>
+                <input type="radio" id="female-gender" name = "gender" value="female">
+                <label for="female-gender">Female</label><br/>
+              </fieldset>
+            </td>
+          </tr>
+          <tr>
+            <td class="right-align">Name:*</td>
+            <td><input type="text" name="name"></td>
+          </tr>
+          <tr>
+            <td class="right-align">Email:*</td>
+            <td><input type="email" name="email"></td>
+          </tr>
+          <tr>
+            <td class="right-align">Password:*</td>
+            <td><input type="password" name="password"></td>
+          </tr>
+        </table>
+        <h2>Payment Information</h2>
+        <table>
+          <tr>
+            <td class="right-align">Card Type:</td>
+            <td>
+              <select>
+                <option>Credit</option>
+                <option>Debit</option>
+                <option>VISA</option>
+                <option>MasterCard</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="right-align">Card Number:*</td>
+            <td><input type="text" name = "card-number"></td>
+          </tr>
+          <tr>
+            <td class="right-align">Expiration Date:*</td>
+            <td><input type="text" name="expiration-date"></td>
+          </tr>
+          <tr><td>formatted as mm/yy</td></tr>
+        </table>
+        </form>
+        <input type="button" value="Validate Payment" id="button">
+        
+</body>
+</html>
