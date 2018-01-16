@@ -84,7 +84,7 @@ i:hover {
 }
 
 .item-container {
-    overflow: scroll;
+    overflow-y:auto;
     max-height: 520px;
 }
 
