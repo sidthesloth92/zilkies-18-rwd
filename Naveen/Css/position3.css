@@ -56,6 +56,10 @@ div {
         width: 50%;
     }
 
+    .col-lg-9 {
+        width: 75%;
+    }
+
     .col-lg-12 {
         width: 100%;
     }
@@ -69,7 +73,6 @@ div {
     }
 
     .col-lg-pos {
-        position: relative;
-        margin-top: -100px;
+        float: none;
     }
 }

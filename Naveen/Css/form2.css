@@ -1,0 +1,27 @@
+.left-side {
+    width: 50%;
+    float: left;
+    margin-left: 150px;
+}
+
+.large-text-area {
+    width: 400px;
+}
+
+.small-text-area {
+    width: 80px;
+}
+
+.indentation {
+    margin-left: 180px;
+}
+
+label {
+    float: left;
+    width: 10em;
+    margin-right: 1em;
+}
+
+h1 {
+    text-align: center;
+}
