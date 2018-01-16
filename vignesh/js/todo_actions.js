@@ -110,10 +110,10 @@ function insertUIElement(id, taskItem) {
 
 window.onload = loadData();
 
-document.getElementbyId('add').addEventlistener('click',addTask);
+document.getElementById('add').addEventListener('click',addTask);
 
-document.getElementbyId('list').addEventlistener('click',function remove1Item(event) {
+document.getElementById('list').addEventListener('click',function remove1Item(event) {
     removeItem(event);
 });
 
-document.getElementbyId('load').addEventlistener('click',loadData);
+document.getElementById('load').addEventListener('click',loadData);
