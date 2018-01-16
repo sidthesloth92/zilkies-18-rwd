@@ -1,5 +1,5 @@
 .container {
-    font-size: 0px;
+    font-size: 1px;
 }
 
 .col {
@@ -21,7 +21,7 @@
     background: darkgreen;
 }
 
-@media screen and (min-width: 0px) {
+@media screen and (min-width: 1px) {
     .col-sm-12 {
         width: 100%;
     }

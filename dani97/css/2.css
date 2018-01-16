@@ -1,5 +1,5 @@
 .container {
-    font-size: 0px;
+    font-size: 1px;
 }
 
 .col {
@@ -29,12 +29,6 @@
     background: yellowgreen;
 }
 
-@media screen and (min-width: 0px) {
-    .col {
-        width: 100%;
-    }
-}
-
 @media screen and (min-width: 500px) {
     .col-1 {
         width: 100%;
@@ -61,7 +55,7 @@
     .col {
         padding: 0%;
     }
-    
+
     .col-1 {
         width: 50%;
     }

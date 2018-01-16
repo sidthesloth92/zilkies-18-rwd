@@ -1,5 +1,5 @@
 .tasks {
-    height: 300px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -7,36 +7,28 @@
 
 .task {
     position: relative;
-    height: 250px;
     width: 22%;
     background: skyblue;
-    text-align: center;
     margin: 2px;
     border-radius: 2%;
+    text-align: center;
     border-top-left-radius: 10%;
     border-bottom-right-radius: 10%;
 }
 
-.my-task,.add {
+.my-task,
+.add {
     width: 200px;
     height: 25px;
-    text-align: center;
 }
 
-.task-close, .task-finish {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    height: 20px;
-    width: 30px;
-    border: 1px solid;
-    background: red;
-    border-radius: 20%;
-}
-
+.task-close,
 .task-finish {
-    background: green;
-    top: 40px;
+    justify-content: space-around;
+    margin: 1px;
+    display: block;
+    border: 1px solid black;
+    width: 50%;
 }
 
 .strike {
