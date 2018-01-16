@@ -1,21 +1,23 @@
-var i = 1;
+var i = 0;
 
-document.getElementById('task-submit').addEventListener('click', addListItem);
-document.getElementById('ul-container').addEventListener('click', alterListItem);
+document.getElementById('task-submit').addEventListener('click', addTask);
+document.getElementById('ul-container').addEventListener('click', alterTask);
+document.getElementById('task-fetch').addEventListener('click', displayTaskFromAjax);
+document.getElementById('ul-container').addEventListener('load',onLoadDisplayTasks);
 
-function TaskClass(id, description, status) {
+function TaskClass(id, title, status) {
     this.id = id;
-    this.description = description;
+    this.title = title;
     this.status = status;
 }
 
-function displayTasks() {
+function onLoadDisplayTasks() {
     var tasks = JSON.parse(localStorage.getItem('tasks'));
     if (tasks != null) {
-        for (j in tasks) {
+        for (var j = 0; j < tasks.length; j++) {
             console.log("id = " + tasks[j].id);
-            console.log("desc = " + tasks[j].description);
-            addDocumentFragment(tasks[j].id, tasks[j].description);
+            console.log("desc = " + tasks[j].title);
+            addToDocumentFragment(tasks[j].id, tasks[j].title);
             i = tasks[j].id + 1;
             if (tasks[j].status == "Checked") {
                 var listItem = document.querySelector("li[data-id='" + tasks[j].id + "']");
@@ -26,34 +28,45 @@ function displayTasks() {
     }
 }
 
-function addDocumentFragment(id, description) {
+function displayTaskFromAjax() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            ajaxData = JSON.parse(this.responseText);
+            for (var count = 0; count < 5; count++ , i++) {
+                addToDocumentFragment(ajaxData[i].id, ajaxData[i].title);
+                addToLocalStorage(ajaxData[i].id, ajaxData[i].title);
+            }
+        }
+    };
+    xhttp.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+    xhttp.send();
+}
+
+function addToDocumentFragment(id, title) {
     var li = document.createElement('li');
     var taskText = document.createElement('span');
     var checkButton = document.createElement('button');
     var deleteButton = document.createElement('button');
     var fragment = document.createDocumentFragment();
-    taskText.textContent = description;
+    taskText.textContent = title;
     taskText.classList.add('task-content')
     li.appendChild(taskText);
     li.appendChild(checkButton);
     li.appendChild(deleteButton);
     fragment.appendChild(li);
     li.dataset.id = id;
+    checkButton.dataset.id = id;
+    deleteButton.dataset.id = id;
+    console.log('check id = ' + checkButton.dataset.id);
     checkButton.innerHTML = "Check";
     deleteButton.innerHTML = "Delete";
     document.getElementsByTagName('ul')[0].appendChild(fragment);
     document.getElementById('task-text').value = '';
 }
 
-function addListItem(event) {
-    var description = document.getElementById('task-text').value.trim();
-    if (description == '') {
-        alert("Please enter a valid task");
-        return;
-    }
-    addDocumentFragment(i, description);
-    var newTask = new TaskClass(i, description, "Unchecked");
-    i++;
+function addToLocalStorage(id, title) {
+    var newTask = new TaskClass(id, title, "Unchecked");
     var tasks = JSON.parse(localStorage.getItem('tasks'));
     if (tasks == null) {
         tasks = [];
@@ -63,8 +76,19 @@ function addListItem(event) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function alterListItem(event) {
-    var id = event.srcElement.parentNode.dataset.id;
+function addTask(event) {
+    var title = document.getElementById('task-text').value.trim();
+    if (title == '') {
+        alert("Please enter a valid task");
+        return;
+    }
+    i++;
+    addToDocumentFragment(i, title);
+    addToLocalStorage(i, title);
+}
+
+function alterTask(event) {
+    var id = event.srcElement.dataset.id;
     var listItem = document.querySelector("li[data-id='" + id + "']");
     if (event.srcElement.textContent == 'Check') {
         listItem.childNodes[0].classList.add('strike-through');
