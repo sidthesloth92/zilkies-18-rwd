@@ -36,10 +36,13 @@ function Task (taskName) {
     //dom element creation
     content.textContent = _taskName;
     content.classList.add('task-content');
+    content.classList.add('content-'+Task.id);
     element.classList.add('task');
-    element.setAttribute('id','task-'+Task.id);
+    element.classList.add('task-'+Task.id);
     check.classList.add('task-finish');
     close.classList.add('task-close');
+    close.setAttribute('data-id','close-'+Task.id);
+    check.setAttribute('data-id','check-'+Task.id);
     check.classList.add('glyphicon');
     check.classList.add('glyphicon-ok');
     close.classList.add('glyphicon');
@@ -88,10 +91,11 @@ function insertTask(multiplicity) {
 function performTask(event) {
   
     var element = event.srcElement;
+    var id = element.dataset.id.split('-')[1];
     if(element.classList.contains('task-close')){
         if(confirm('Sure you want to delete this task?')){
-            element.parentNode.parentNode.removeChild(element.parentNode);
-            var id = element.parentNode.getId;
+            var taskToDelete = document.getElementsByClassName('task-'+id)[0];
+            taskToDelete.remove();
             for(var index = 0 ;index < TaskArray.length ; index ++ ) {
                 if(TaskArray.getId == id){
                     TaskArray.splice(index,1);
@@ -100,10 +104,11 @@ function performTask(event) {
         }
     }
     else if(element.classList.contains('task-finish')){
-        if(!element.parentNode.classList.contains('strike')){
-            element.parentNode.classList.add('strike');
+        var content = document.getElementsByClassName('content-'+id)[0];
+        if(!content.classList.contains('strike')){
+            content.classList.add('strike');
         }else {
-            element.parentNode.classList.remove('strike');
+            content.classList.remove('strike');
         }
     }
 }

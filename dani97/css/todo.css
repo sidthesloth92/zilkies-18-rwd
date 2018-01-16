@@ -8,6 +8,7 @@
 .task {
     display: flex;
     max-width: 1000px;
+    min-height: 30px;
     position: relative;
     width: 100%;
     background: skyblue;
