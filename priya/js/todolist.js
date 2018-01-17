@@ -6,6 +6,7 @@ var unorderedList;
 var localStorage = localStorage;
 var todoItemsList = {
     deleteItem: function (positionToDelete) {
+        //delete item from array
         for (var i = 0; i < todoCollection.length; i++) {
             if (todoCollection[i].id == positionToDelete)
                 todoCollection.splice(i, 1);
@@ -14,6 +15,7 @@ var todoItemsList = {
     }
 };
 
+//add item to array
 function addItem(listText) {
     this.title = listText;
     this.done = false;
