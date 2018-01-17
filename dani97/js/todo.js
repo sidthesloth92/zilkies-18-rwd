@@ -4,19 +4,25 @@ var alert = window.alert;
 var confirm = window.confirm; 
 var ActiveXObject = window.ActiveXObject;
 var document = window.document;
+var taskInput = document.getElementsByClassName('my-task')[0];
+var tasks = document.getElementsByClassName('tasks')[0];
+taskInput.addEventListener('focus',removeValidation);
+tasks.addEventListener('click',function perform(event){
+    performTask(event);
+});
 window.onload = function() {
     if(confirm('do you want to load tasks from web')){
         insertTask(true);
     }
 };
-getId = function () {
+function getId () {
     if ( typeof Task.id == 'undefined' ) {
     // It has not... perform the initialization
         Task.id = 0;
     }
     Task.id += 1;
     return Task.id;
-};
+}
 var TaskArray = [];
 var fragment;
 function Task (taskName) {
@@ -26,26 +32,31 @@ function Task (taskName) {
     var element = window.document.createElement('div');
     var close = window.document.createElement('button');
     var check = window.document.createElement('button');
+    var content = document.createElement('span');
     //dom element creation
-    element.textContent = taskName;
+    content.textContent = _taskName;
+    content.classList.add('task-content');
+    content.classList.add('content-'+Task.id);
     element.classList.add('task');
-    
-    element.setAttribute('id','task-'+Task.id);
+    element.classList.add('task-'+Task.id);
     check.classList.add('task-finish');
     close.classList.add('task-close');
+    close.setAttribute('data-id','close-'+Task.id);
+    check.setAttribute('data-id','check-'+Task.id);
     check.classList.add('glyphicon');
     check.classList.add('glyphicon-ok');
     close.classList.add('glyphicon');
     close.classList.add('glyphicon-remove');
-    element.appendChild(close);
+    element.appendChild(content);
     element.appendChild(check);
+    element.appendChild(close);
     fragment.appendChild(element);
 
-    getContent = function () {
+    this.getContent = function () {
         return this._taskName;
     };
 
-    setContent = function (taskName ) {
+    this.setContent = function (taskName) {
         this._taskName = taskName;
     };
 }
@@ -68,7 +79,8 @@ function insertTask(multiplicity) {
             fragment = document.createDocumentFragment();
             var newTask = new Task(task);
             TaskArray.push(newTask);
-            window.document.getElementsByClassName('tasks')[0].appendChild(fragment);
+            var container = window.document.getElementsByClassName('tasks')[0];
+            container.insertBefore(fragment,container.childNodes[0]);
         }
     }
     else {
@@ -79,10 +91,11 @@ function insertTask(multiplicity) {
 function performTask(event) {
   
     var element = event.srcElement;
+    var id = element.dataset.id.split('-')[1];
     if(element.classList.contains('task-close')){
         if(confirm('Sure you want to delete this task?')){
-            element.parentNode.parentNode.removeChild(element.parentNode);
-            var id = element.parentNode.getId;
+            var taskToDelete = document.getElementsByClassName('task-'+id)[0];
+            taskToDelete.remove();
             for(var index = 0 ;index < TaskArray.length ; index ++ ) {
                 if(TaskArray.getId == id){
                     TaskArray.splice(index,1);
@@ -91,10 +104,11 @@ function performTask(event) {
         }
     }
     else if(element.classList.contains('task-finish')){
-        if(!element.parentNode.classList.contains('strike')){
-            element.parentNode.classList.add('strike');
+        var content = document.getElementsByClassName('content-'+id)[0];
+        if(!content.classList.contains('strike')){
+            content.classList.add('strike');
         }else {
-            element.parentNode.classList.remove('strike');
+            content.classList.remove('strike');
         }
     }
 }
@@ -135,7 +149,7 @@ function loadJSON(){
                 var newTask = new Task(post.title);
                 TaskArray.push(newTask);
             }
-            postContainer.appendChild(fragment);
+            postContainer.insertBefore(fragment,postContainer.childNodes[0]);
             // jsonObj variable now contains the data structure and can
             // be accessed as jsonObj.name and jsonObj.country.
                
