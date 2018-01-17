@@ -1,15 +1,21 @@
 .remove-item {
-    border-radius: 10px;
     background-color: #ff0000;
-    color: white;
-    height: 25px;
 }
 
 .check-item {
-    border-radius: 10px;
     background-color: green;
+}
+
+.remove-item,
+.check-item {
     color: white;
     height: 25px;
+    border-radius: 10px;
+}
+
+.remove-item:hover,
+.check-item:hover {
+    opacity: 0.5;
 }
 
 .strike {
@@ -27,16 +33,15 @@
 li {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    background-color: cyan;
-    border: 1px solid red;
+    background: radial-gradient(#ff6666, #ff9999);
     margin: 3px;
     width: 70%;
     min-height: 50px;
 }
 
 section {
-    border: 1px solid red;
     margin-left: 20%;
     margin-right: 20%;
     padding: 10px;
@@ -45,4 +50,8 @@ section {
 
 span {
     flex-grow: 1;
+}
+
+body {
+    background: radial-gradient(#ff3333, #ff6666);
 }
