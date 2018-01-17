@@ -3,6 +3,7 @@ var window = window;
 var document = window.document;
 var todoCollection = new Array();
 var unorderedList;
+var localStorage = localStorage;
 var todoItemsList = {
     deleteItem: function (positionToDelete) {
         for (var i = 0; i < todoCollection.length; i++) {
@@ -18,17 +19,6 @@ function addItem(listText) {
     this.done = false;
     this.id = ++count;
 }
-/*
-document.getElementById('container').addEventListener('load', function(){
-    var localStorageTasks = localStorage.getItem('tasks');
-    var parsedObject = JSON.parse(localStorageTasks);
-    for (var i = 0; i < parsedObject.length; i++) {
-        createElement(parsedObject[i].title);
-    }
-});
-*/
-
-
 
 var handler = {
     addItem: function () {
@@ -46,9 +36,9 @@ var handler = {
     },
     deleteItem: function (positionToDelete) {
         todoItemsList.deleteItem(positionToDelete);
-        var deleteElement = document.querySelector('div[data-id="'+positionToDelete+'"]');
+        var deleteElement = document.querySelector('div[data-id="' + positionToDelete + '"]');
         deleteElement.remove();
-        /* localStorage.setItem('tasks', JSON.stringify(todoCollection));*/
+
         //addList(todoCollection.length,todoCollection);
     }
 };
@@ -65,12 +55,14 @@ var view = {
                     var parent = event.target;
                     var parentId = parent.getAttribute('data-delete-id');
                     handler.deleteItem(parentId);
+                    localStorage.setItem('tasks', JSON.stringify(todoCollection));
                 }
             }
             else {
-                var strike_event= event.target.parentNode.firstChild;
+                var strike_event = event.target.parentNode.firstChild;
                 strike_event.classList.toggle('strike-through');
                 event.target.parentNode.classList.remove('strike-through');
+                localStorage.setItem('tasks', JSON.stringify(todoCollection));
             }
         });
     }
@@ -78,13 +70,13 @@ var view = {
 
 view.callEventListener();
 
-document.getElementById('retrieve-json').addEventListener('click', function(){
+document.getElementById('retrieve-json').addEventListener('click', function () {
     var request = new window.XMLHttpRequest();
     request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
     request.onreadystatechange = function () {
         if (this.readyState == this.DONE && this.status == 200) {
             if (this.responseText) {
-                var n=todoCollection.length;
+                var n = todoCollection.length;
                 addToList(this.responseText);
                 addList(n, todoCollection);
             }
@@ -94,7 +86,7 @@ document.getElementById('retrieve-json').addEventListener('click', function(){
 
 });
 
-    
+
 function addToList(todoJSON) {
     if (todoJSON == null || todoJSON.trim() == '')
         return;
@@ -131,7 +123,7 @@ function addList(option, todoArray) {
         createElement(todoArray);
         unorderedList.appendChild(fragment);
     }
-    /*localStorage.setItem('tasks', JSON.stringify(todoArray));*/
+    localStorage.setItem('tasks', JSON.stringify(todoArray));
 }
 function createElement(todoItem) {
     var li = document.createElement('li');
