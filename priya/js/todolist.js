@@ -22,10 +22,12 @@ function addItem(listText) {
     this.id = ++count;
 }
 
+//handling addition and deletion of item
 var handler = {
     addItem: function () {
         var text_input = window.document.getElementById('text-input');
         var pattern = '^\\s+$';
+        //alert if no input
         if (text_input.value == '' || text_input.value == null || text_input.value.match(pattern)) {
             window.alert('Enter some text');
         }
@@ -37,11 +39,10 @@ var handler = {
         }
     },
     deleteItem: function (positionToDelete) {
+        //delete from array and page
         todoItemsList.deleteItem(positionToDelete);
         var deleteElement = document.querySelector('div[data-id="' + positionToDelete + '"]');
         deleteElement.remove();
-
-        //addList(todoCollection.length,todoCollection);
     }
 };
 
@@ -52,11 +53,12 @@ var view = {
         unordered_list.addEventListener('click', function (event) {
             var elementClicked = event.target;
             if (elementClicked.className === 'deleteButton') {
+                //confirm deletion
                 var confirmDel = window.confirm('Are you sure you want to Delete item ?');
                 if (confirmDel == true) {
-                    var parent = event.target;
-                    var parentId = parent.getAttribute('data-delete-id');
-                    handler.deleteItem(parentId);
+                    var element = event.target;
+                    var elementId = element.getAttribute('data-delete-id');
+                    handler.deleteItem(elementId);
                     localStorage.setItem('tasks', JSON.stringify(todoCollection));
                 }
             }
