@@ -24,14 +24,45 @@
     background: green;
 }
 
+.listitem-remove-buttons:hover,
+.listitem-uncheck-buttons:hover {
+    color: yellow;
+    border: 1px solid yellow;
+}
+
 .listitem {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 400px;
     min-height: 100px;
     background: cyan;
     height: auto;
-    margin: 10px;
-    border: 3px solid red;
+    margin: 5px;
+    border: 4px solid red;
+}
+
+.listitem:hover {
+    border: 4px solid orange;
+}
+
+#enterDataButton,
+#loadDataButton {
+    font-size: 15px;
+    background: brown;
+    color: yellow;
+}
+
+.application-name {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+}
+
+body {
+    background: url("../images/background.jpg");
+    background-size: cover;
 }

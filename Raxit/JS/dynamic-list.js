@@ -51,15 +51,15 @@ function insertFragment(taskObject) {
     var listItem = document.createElement('li');
     var removeButton = document.createElement('button');
     var uncheckButton = document.createElement('button');
-    nameText.appendChild(document.createTextNode('Name : ' + taskObject.name));
+    nameText.appendChild(document.createTextNode(taskObject.name));
     removeButton.classList.add('listitem-remove-buttons');
     uncheckButton.classList.add('listitem-uncheck-buttons');
-    nameText.setAttribute('class', 'task-' + taskObject.id);
+    nameText.setAttribute('class', 'taskname-' + taskObject.id);
     nameText.classList.add('listitem-name');
     removeButton.appendChild(document.createTextNode('Delete'));
-    removeButton.setAttribute('data-id', 'remove-' + taskObject.id);
+    removeButton.setAttribute('data-id', 'listitem-remove-button-' + taskObject.id);
     uncheckButton.appendChild(document.createTextNode('Check'));
-    uncheckButton.setAttribute('data-id', 'check-' + taskObject.id);
+    uncheckButton.setAttribute('data-id', 'listitem-check-button-' + taskObject.id);
     listItem.setAttribute('class', 'listitem-' + taskObject.id);
     listItem.appendChild(nameText);
     listItem.appendChild(uncheckButton);
@@ -88,18 +88,18 @@ function addListItem() {
 function deleteListItem(event) {
     element = event.srcElement;
     var getId = element.dataset.id.split('-');
-    var object = listObject[getId[1]];
-    if(getId[0] == 'remove') {
+    var object = listObject[getId[3]];
+    if(getId[1] == 'remove') {
         if(window.confirm('Do you want to delete ' + object.name + '?') == true) {
-            document.querySelector('.listitem-'+getId[1]).remove();
+            document.querySelector('.listitem-'+getId[3]).remove();
             delete listObject[getId[1]];
         }
-    } else if(getId[0] == 'check') {
-        if(document.querySelector('.task-' + getId[1]).classList.contains('strikeText')){
-            document.querySelector('.task-' + getId[1]).classList.remove('strikeText');
+    } else if(getId[1] == 'check') {
+        if(document.querySelector('.taskname-' + getId[3]).classList.contains('strikeText')){
+            document.querySelector('.taskname-' + getId[3]).classList.remove('strikeText');
             element.innerHTML = 'Check';
         } else {
-            document.querySelector('.task-' + getId[1]).classList.add('strikeText');
+            document.querySelector('.taskname-' + getId[3]).classList.add('strikeText');
             element.innerHTML = 'Uncheck';
         }
     }
