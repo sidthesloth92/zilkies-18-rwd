@@ -1,3 +1,7 @@
+body {
+    background-color: #999999;
+}
+
 .input-container {
     text-align: center;
     font-size: 22px;
@@ -5,10 +9,13 @@
     width: 80%;
     border: 1px solid black;
     padding: 15px;
+    background-color: #888;
 }
 
 h1 {
     text-align: center;
+    font-size: 40px;
+    border-bottom: 5px solid #bbb;
 }
 
 ul {
@@ -19,20 +26,35 @@ ul {
 
 li {
     display: inline-flex;
-    margin: 10px 0;
+    flex-wrap: wrap;
+    margin: 7px 0;
 }
 
 .task-content {
     flex-grow: 1;
-    border: 2px solid cornflowerblue;
     font-size: 26px;
+    background-color: #888;
+    border: 1px solid black;
 }
 
 li > button {
-    flex-basis: 90px;
-    font-size: 16px;
+    flex-basis: 150px;
+    font-size: 17px;
+    border-radius: 15px;
+    outline: none;
+}
+
+li > button:hover {
+    background-color: #888888;
+    cursor: pointer;
 }
 
 .strike-through {
     text-decoration: line-through;
+}
+
+#task-submit,
+#task-fetch,
+#task-text {
+    font-size: 17px;
 }

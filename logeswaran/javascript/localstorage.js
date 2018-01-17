@@ -1,9 +1,17 @@
-var i = 0;
-
 document.getElementById('task-submit').addEventListener('click', addTask);
 document.getElementById('ul-container').addEventListener('click', alterTask);
 document.getElementById('task-fetch').addEventListener('click', displayTaskFromAjax);
-document.getElementById('ul-container').addEventListener('load',onLoadDisplayTasks);
+document.getElementById('ul-container').addEventListener('load', onLoadDisplayTasks);
+
+var i = 0;
+var window = window;
+var document = document;
+var XMLHttpRequest = XMLHttpRequest;
+var alert = alert;
+var localStorage = localStorage;
+var event = event;
+var tasks = tasks;
+var taskStorage;
 
 function TaskClass(id, title, status) {
     this.id = id;
@@ -15,8 +23,6 @@ function onLoadDisplayTasks() {
     var tasks = JSON.parse(localStorage.getItem('tasks'));
     if (tasks != null) {
         for (var j = 0; j < tasks.length; j++) {
-            console.log("id = " + tasks[j].id);
-            console.log("desc = " + tasks[j].title);
             addToDocumentFragment(tasks[j].id, tasks[j].title);
             i = tasks[j].id + 1;
             if (tasks[j].status == "Checked") {
@@ -58,7 +64,6 @@ function addToDocumentFragment(id, title) {
     li.dataset.id = id;
     checkButton.dataset.id = id;
     deleteButton.dataset.id = id;
-    console.log('check id = ' + checkButton.dataset.id);
     checkButton.innerHTML = "Check";
     deleteButton.innerHTML = "Delete";
     document.getElementsByTagName('ul')[0].appendChild(fragment);
@@ -71,7 +76,6 @@ function addToLocalStorage(id, title) {
     if (tasks == null) {
         tasks = [];
     }
-    console.log(newTask);
     tasks.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -94,9 +98,7 @@ function alterTask(event) {
         listItem.childNodes[0].classList.add('strike-through');
         event.srcElement.textContent = 'Uncheck';
         tasks = JSON.parse(localStorage.getItem('tasks'));
-        for (j in tasks) {
-            console.log("tasks[j].id = " + tasks[j].id);
-            console.log("event id = " + id);
+        for (var j = 0; j < tasks.length; j++) {
             if (tasks[j].id == id) {
                 tasks[j].status = "Checked";
             }
@@ -106,9 +108,7 @@ function alterTask(event) {
         listItem.childNodes[0].classList.remove('strike-through');
         event.srcElement.textContent = 'Check';
         tasks = JSON.parse(localStorage.getItem('tasks'));
-        for (j in tasks) {
-            console.log("tasks[j].id = " + tasks[j].id);
-            console.log("event id = " + id);
+        for (var j = 0; j < tasks.length; j++) {
             if (tasks[j].id == id) {
                 tasks[j].status = "Unchecked";
             }
@@ -119,7 +119,7 @@ function alterTask(event) {
         if (window.confirm("Do you want to delete this item?")) {
             document.getElementById('ul-container').removeChild(listItem);
             tasks = JSON.parse(localStorage.getItem('tasks'));
-            for (j in tasks) {
+            for (var j = 0; j < tasks.length; j++) {
                 if (tasks[j].id == id) {
                     tasks.splice(j, 1);
                 }
