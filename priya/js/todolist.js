@@ -1,4 +1,4 @@
-var count = 100;
+var count = 0;
 var window = window;
 var document = window.document;
 var todoCollection = new Array();
@@ -18,6 +18,17 @@ function addItem(listText) {
     this.done = false;
     this.id = ++count;
 }
+/*
+document.getElementById('container').addEventListener('load', function(){
+    var localStorageTasks = localStorage.getItem('tasks');
+    var parsedObject = JSON.parse(localStorageTasks);
+    for (var i = 0; i < parsedObject.length; i++) {
+        createElement(parsedObject[i].title);
+    }
+});
+*/
+
+
 
 var handler = {
     addItem: function () {
@@ -37,7 +48,8 @@ var handler = {
         todoItemsList.deleteItem(positionToDelete);
         var deleteElement = document.querySelector('div[data-id="'+positionToDelete+'"]');
         deleteElement.remove();
-        addList(todoCollection.length,todoCollection);
+        /* localStorage.setItem('tasks', JSON.stringify(todoCollection));*/
+        //addList(todoCollection.length,todoCollection);
     }
 };
 
@@ -50,13 +62,15 @@ var view = {
             if (elementClicked.className === 'deleteButton') {
                 var confirmDel = window.confirm('Are you sure you want to Delete item ?');
                 if (confirmDel == true) {
-                    var parent = event.target.parentNode;
-                    var parentId = parent.getAttribute('data-id');
+                    var parent = event.target;
+                    var parentId = parent.getAttribute('data-delete-id');
                     handler.deleteItem(parentId);
                 }
             }
             else {
-                event.target.classList.add('strike-through');
+                var strike_event= event.target.parentNode.firstChild;
+                strike_event.classList.toggle('strike-through');
+                event.target.parentNode.classList.remove('strike-through');
             }
         });
     }
@@ -90,7 +104,7 @@ function addToList(todoJSON) {
         return;
     }
     for (var i = 0; i < todoArray.length; i++) {
-        var todoItem = todoArray[i];
+        var todoItem = new addItem(todoArray[i].title);
         todoCollection.push(todoItem);
     }
 }
@@ -117,7 +131,7 @@ function addList(option, todoArray) {
         createElement(todoArray);
         unorderedList.appendChild(fragment);
     }
-
+    /*localStorage.setItem('tasks', JSON.stringify(todoArray));*/
 }
 function createElement(todoItem) {
     var li = document.createElement('li');
