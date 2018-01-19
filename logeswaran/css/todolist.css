@@ -35,12 +35,13 @@ li {
     font-size: 26px;
     background-color: #888;
     border: 1px solid black;
+    padding: 5px 10px;
 }
 
 li > button {
     flex-basis: 150px;
     font-size: 17px;
-    border-radius: 15px;
+    border-radius: 20px;
     outline: none;
 }
 
