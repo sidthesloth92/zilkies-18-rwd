@@ -1,3 +1,7 @@
+.main-container {
+    background: pink;
+}
+
 .item__description {
     margin: 1px;
     display: flex;
