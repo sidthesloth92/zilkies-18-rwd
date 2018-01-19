@@ -3,7 +3,7 @@ var window = window;
 var document = window.document;
 var todoCollection = new Array();
 var unorderedList;
-var localStorage = localStorage;
+var icon;
 var todoItemsList = {
     deleteItem: function (positionToDelete) {
         //delete item from array
@@ -59,14 +59,20 @@ var view = {
                     var element = event.target;
                     var elementId = element.getAttribute('data-delete-id');
                     handler.deleteItem(elementId);
-                    localStorage.setItem('tasks', JSON.stringify(todoCollection));
                 }
             }
             else {
                 var strike_event = event.target.parentNode.firstChild;
                 strike_event.classList.toggle('strike-through');
+                if (strike_event.classList.contains ('strike-through')) {
+                    icon = document.createElement('i');
+                    icon.setAttribute('class', 'fa fa-check-square');
+                    strike_event.appendChild(icon);
+                }
+                else {
+                    strike_event.removeChild(icon);
+                }
                 event.target.parentNode.classList.remove('strike-through');
-                localStorage.setItem('tasks', JSON.stringify(todoCollection));
             }
         });
     }
@@ -111,6 +117,7 @@ function createDeleteButton() {
     deleteButton.className = 'deleteButton';
     return deleteButton;
 }
+
 unorderedList = document.getElementById('ul');
 var fragment = document.createDocumentFragment();
 
@@ -127,7 +134,6 @@ function addList(option, todoArray) {
         createElement(todoArray);
         unorderedList.appendChild(fragment);
     }
-    localStorage.setItem('tasks', JSON.stringify(todoArray));
 }
 
 function createElement(todoItem) {

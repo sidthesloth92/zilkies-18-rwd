@@ -9,13 +9,8 @@
     position: relative;
 }
 
-.item__description:hover {
-    background-color: pink;
-    border: 1px solid red;
-}
-
 .item__list {
-    width: 1000px;
+    width: 1100px;
     margin-top: 1px;
     padding: 1px;
     padding-top: 1px;
@@ -27,8 +22,8 @@
 }
 
 .item__list:hover {
-    background-color: pink;
-    border: 1px solid red;
+    background-color: lightgreen;
+    border: 1px solid olive;
 }
 
 .deleteButton {
@@ -57,6 +52,7 @@
 
 .text-box {
     border-color: gray;
+    width: 900px;
 }
 
 .strike-through {
