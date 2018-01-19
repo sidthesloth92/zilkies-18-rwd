@@ -129,6 +129,7 @@ function addList(option, todoArray) {
     }
     localStorage.setItem('tasks', JSON.stringify(todoArray));
 }
+
 function createElement(todoItem) {
     var li = document.createElement('li');
     li.className = 'item__list';
