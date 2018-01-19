@@ -26,6 +26,11 @@
     background: cyan;
 }
 
+.item__list:hover {
+    background-color: pink;
+    border: 1px solid red;
+}
+
 .deleteButton {
     position: absolute;
     right: 1px;
