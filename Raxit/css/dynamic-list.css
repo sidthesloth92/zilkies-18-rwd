@@ -36,9 +36,7 @@
 
 .listitem {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
     width: 400px;
     min-height: 100px;
     background: cyan;

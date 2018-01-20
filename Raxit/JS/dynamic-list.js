@@ -71,7 +71,7 @@ function insertFragment(taskObject) {
 function addListItem() {
     var taskName = document.getElementById('task');
     var errorMessage = document.getElementsByClassName('error-message');
-    var taskNameValue = taskName.value.trim();
+    var taskNameValue = taskName.value.replace(/^\s+$/g, '');
     if(taskNameValue.length == 0) {
         errorMessage[0].innerHTML = 'Please enter all the fields.';
         taskName.value = '';
@@ -107,10 +107,9 @@ function deleteListItem(event) {
 
 window.onload = function() {
     loadJSONData();
+    document.getElementById('enterDataButton').addEventListener('click', addListItem);
+    document.getElementById('loadDataButton').addEventListener('click', loadJSONData);
+    document.getElementsByClassName('taskList')[0].addEventListener('click', function deleteListItem1(event) {
+        deleteListItem(event);
+    });
 };
-
-document.getElementById('enterDataButton').addEventListener('click', addListItem);
-document.getElementById('loadDataButton').addEventListener('click', loadJSONData);
-document.getElementsByClassName('taskList')[0].addEventListener('click', function deleteListItem1(event) {
-    deleteListItem(event);
-});
