@@ -4,27 +4,27 @@ var document = window.document;
 var todoCollection = new Array();
 var unorderedList;
 var icon;
+var fragment = document.createDocumentFragment();
 var todoItemsList = {
-    deleteItem: function (positionToDelete) {
+    deleteItem: function deleteItem(positionToDelete) {
         //delete item from array
         for (var i = 0; i < todoCollection.length; i++) {
             if (todoCollection[i].id == positionToDelete)
                 todoCollection.splice(i, 1);
         }
 
+    },
+    addItem: function addItem(listText) {
+        //add item to list
+        this.title = listText;
+        this.done = false;
+        this.id = ++count;
     }
 };
 
-//add item to array
-function addItem(listText) {
-    this.title = listText;
-    this.done = false;
-    this.id = ++count;
-}
-
 //handling addition and deletion of item
 var handler = {
-    addItem: function () {
+    addItem: function addItem() {
         var text_input = window.document.getElementById('text-input');
         var pattern = '^\\s+$';
         //alert if no input
@@ -32,13 +32,13 @@ var handler = {
             window.alert('Enter some text');
         }
         else {
-            var item = new addItem(text_input.value);
+            var item = new todoItemsList.addItem(text_input.value);
             todoCollection.push(item);
             addList(-1, item);
             text_input.value = '';
         }
     },
-    deleteItem: function (positionToDelete) {
+    deleteItem: function deleteItem(positionToDelete) {
         //delete from array and page
         todoItemsList.deleteItem(positionToDelete);
         var deleteElement = document.querySelector('div[data-id="' + positionToDelete + '"]');
@@ -46,41 +46,40 @@ var handler = {
     }
 };
 
-var view = {
-    callEventListener: function () {
-
-        var unordered_list = document.querySelector('ul');
-        unordered_list.addEventListener('click', function (event) {
-            var elementClicked = event.target;
-            if (elementClicked.className === 'deleteButton') {
-                //confirm deletion
-                var confirmDel = window.confirm('Are you sure you want to Delete item ?');
-                if (confirmDel == true) {
-                    var element = event.target;
-                    var elementId = element.getAttribute('data-delete-id');
-                    handler.deleteItem(elementId);
-                }
+function registerEventListener() {
+    var unordered_list = document.querySelector('ul');
+    unordered_list.addEventListener('click', function deleteListItem(event) {
+        var elementClicked = event.target;
+        if (elementClicked.className === 'deleteButton') {
+            //confirm deletion
+            var confirmDel = window.confirm('Are you sure you want to Delete item ?');
+            if (confirmDel == true) {
+                var element = event.target;
+                var elementId = element.getAttribute('data-delete-id');
+                handler.deleteItem(elementId);
+            }
+        }
+    });
+    unordered_list.addEventListener('click', function strikeItem(event) {
+        var elementClicked = event.target;
+        if (elementClicked.classList.contains('item__list')) {
+            var strike_event = event.target;
+            strike_event.classList.toggle('strike-through');
+            if (strike_event.classList.contains('strike-through')) {
+                icon = document.createElement('i');
+                icon.setAttribute('class', 'fa fa-check-square');
+                strike_event.appendChild(icon);
             }
             else {
-                var strike_event = event.target.parentNode.firstChild;
-                strike_event.classList.toggle('strike-through');
-                if (strike_event.classList.contains ('strike-through')) {
-                    icon = document.createElement('i');
-                    icon.setAttribute('class', 'fa fa-check-square');
-                    strike_event.appendChild(icon);
-                }
-                else {
-                    strike_event.removeChild(icon);
-                }
-                event.target.parentNode.classList.remove('strike-through');
+                strike_event.removeChild(icon);
             }
-        });
-    }
-};
+        }
+    });
+}
 
-view.callEventListener();
+registerEventListener();
 
-document.getElementById('retrieve-json').addEventListener('click', function () {
+document.getElementById('retrieve-json').addEventListener('click', function retrieve() {
     var request = new window.XMLHttpRequest();
     request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
     request.onreadystatechange = function () {
@@ -96,9 +95,8 @@ document.getElementById('retrieve-json').addEventListener('click', function () {
 
 });
 
-
 function addToList(todoJSON) {
-    if (todoJSON == null || todoJSON.trim() == '')
+    if (todoJSON == null)
         return;
 
     var todoArray = JSON.parse(todoJSON);
@@ -106,20 +104,12 @@ function addToList(todoJSON) {
         return;
     }
     for (var i = 0; i < todoArray.length; i++) {
-        var todoItem = new addItem(todoArray[i].title);
+        var todoItem = new todoItemsList.addItem(todoArray[i].title);
         todoCollection.push(todoItem);
     }
 }
 
-function createDeleteButton() {
-    var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'X';
-    deleteButton.className = 'deleteButton';
-    return deleteButton;
-}
-
 unorderedList = document.getElementById('ul');
-var fragment = document.createDocumentFragment();
 
 function addList(option, todoArray) {
     if (option >= 0) {
@@ -136,6 +126,13 @@ function addList(option, todoArray) {
     }
 }
 
+function createDeleteButton() {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'X';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
+}
+
 function createElement(todoItem) {
     var li = document.createElement('li');
     li.className = 'item__list';
@@ -150,3 +147,4 @@ function createElement(todoItem) {
     fragment.appendChild(todoDiv);
     li.innerHTML = todoItem.title;
 }
+

@@ -15,7 +15,7 @@
     padding: 1px;
     padding-top: 1px;
     display: flex;
-    overflow-wrap: normal;
+    word-wrap: break-word;
     border: 1px solid black;
     border-radius: 20px;
     background: cyan;
