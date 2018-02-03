@@ -51,13 +51,16 @@ function insertFragment(taskObject) {
     var listItem = document.createElement('li');
     var removeButton = document.createElement('button');
     var uncheckButton = document.createElement('button');
-    nameText.appendChild(document.createTextNode('Name : ' + taskObject.name));
+    nameText.appendChild(document.createTextNode(taskObject.name));
     removeButton.classList.add('listitem-remove-buttons');
     uncheckButton.classList.add('listitem-uncheck-buttons');
+    nameText.setAttribute('class', 'taskname-' + taskObject.id);
     nameText.classList.add('listitem-name');
     removeButton.appendChild(document.createTextNode('Delete'));
-    removeButton.setAttribute('id','remove-' + taskObject.id);
+    removeButton.setAttribute('data-id', 'listitem-remove-button-' + taskObject.id);
     uncheckButton.appendChild(document.createTextNode('Check'));
+    uncheckButton.setAttribute('data-id', 'listitem-check-button-' + taskObject.id);
+    listItem.setAttribute('class', 'listitem-' + taskObject.id);
     listItem.appendChild(nameText);
     listItem.appendChild(uncheckButton);
     listItem.appendChild(removeButton);
@@ -68,7 +71,7 @@ function insertFragment(taskObject) {
 function addListItem() {
     var taskName = document.getElementById('task');
     var errorMessage = document.getElementsByClassName('error-message');
-    var taskNameValue = taskName.value.trim();
+    var taskNameValue = taskName.value.replace(/^\s+$/g, '');
     if(taskNameValue.length == 0) {
         errorMessage[0].innerHTML = 'Please enter all the fields.';
         taskName.value = '';
@@ -84,31 +87,29 @@ function addListItem() {
 
 function deleteListItem(event) {
     element = event.srcElement;
-    var getId = element.id.split('-');
-    var object = {};
-    object = listObject[getId[1]];
-    if(getId[0] == 'remove') {
+    var getId = element.dataset.id.split('-');
+    var object = listObject[getId[3]];
+    if(getId[1] == 'remove') {
         if(window.confirm('Do you want to delete ' + object.name + '?') == true) {
-            element.parentNode.parentNode.removeChild(element.parentNode);
+            document.querySelector('.listitem-'+getId[3]).remove();
             delete listObject[getId[1]];
         }
-    } else if(element.classList.contains('listitem-uncheck-buttons')) {
-        if(element.parentNode.firstChild.classList.contains('strikeText')){
-            element.parentNode.firstChild.classList.remove('strikeText');
+    } else if(getId[1] == 'check') {
+        if(document.querySelector('.taskname-' + getId[3]).classList.contains('strikeText')){
+            document.querySelector('.taskname-' + getId[3]).classList.remove('strikeText');
             element.innerHTML = 'Check';
         } else {
-            element.parentNode.firstChild.classList.add('strikeText');
+            document.querySelector('.taskname-' + getId[3]).classList.add('strikeText');
             element.innerHTML = 'Uncheck';
         }
-    } 
+    }
 }
 
 window.onload = function() {
-    loadData();
+    loadJSONData();
+    document.getElementById('enterDataButton').addEventListener('click', addListItem);
+    document.getElementById('loadDataButton').addEventListener('click', loadJSONData);
+    document.getElementsByClassName('taskList')[0].addEventListener('click', function deleteListItem1(event) {
+        deleteListItem(event);
+    });
 };
-
-document.getElementById('enterDataButton').addEventListener('click', addListItem);
-document.getElementById('loadDataButton').addEventListener('click', loadJSONData);
-document.getElementsByClassName('taskList')[0].addEventListener('click', function deleteListItem1(event) {
-    deleteListItem(event);
-});
