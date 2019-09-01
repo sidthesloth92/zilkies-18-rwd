@@ -48,20 +48,22 @@
     .col-1 {
         width: 25%;
         height: 200px;
+        float: right;
     }
 
     .col-2 {
         width: 50%;
+        float: right;
     }
 
     .col-3 {
         width: 50%;
+        float: right;
     }
 
     .col-4 {
         width: 25%;
         height: 200px;
-        position: relative;
-        top: -100px;
+        float: left;
     }
 }

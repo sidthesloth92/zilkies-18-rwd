@@ -1,0 +1,40 @@
+header,
+footer {
+    border: 2px solid black;
+    text-align: center;
+    font-size: 22px;
+    padding: 8px;
+    clear: both;
+}
+
+.float-left {
+    float: left;
+    border: 2px solid black;
+    width: 25%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 22px;
+    padding: 8px;
+}
+
+nav {
+    height: 300px;
+}
+
+.left-content {
+    height: 100px;
+}
+
+.upper-content {
+    height: 100px;
+}
+
+.right-content {
+    height: 100px;
+}
+
+.middle-content,
+.lower-content {
+    height: 100px;
+    width: 75%;
+}
